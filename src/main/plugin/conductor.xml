@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <target
+        name="dita2linkedin-cv"
+        depends="dita-cv" />
+
+    <target
+        name="dita-cv">
+        <echo>TODO</echo>
+    </target>
+</project>
