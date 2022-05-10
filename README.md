@@ -1,5 +1,7 @@
 # linkedin.to.pdf exercise for fun
 
+the purpose of this project is to have fun with DITA-OT. DITA has no specialisation for writing CVs, so we use some tricks
+
 # basic idea
 
 * Maven drives the process
