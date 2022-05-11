@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description
+    xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <x:scenario>
+        <x:label>GIVEN a section</x:label>
+        <x:scenario>
+            <x:label>WHEN it has no outputclass</x:label>
+            <x:context>
+                <section class="- topic/section "/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN process as usual</x:label>
+                <section class="- topic/section "/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN it is of outputclass experience</x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="experience"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before it and process it as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Experience</fo:block>
+                <section class="- topic/section " outputclass="experience"/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN it is of outputclass education</x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="education"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before it and process it as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Education</fo:block>
+                <section class="- topic/section " outputclass="education"/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN it is of outputclass skills</x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="skills"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before it and process it as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Skills</fo:block>
+                <section class="- topic/section " outputclass="skills"/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN it is of outputclass education</x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="languages"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before it and process it as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Languages</fo:block>
+                <section class="- topic/section " outputclass="languages"/>
+            </x:expect>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario>
+        <x:label>GIVEN a series of sections</x:label>
+        <x:scenario>
+            <x:label>WHEN they have no outputclass</x:label>
+            <x:context>
+                <section class="- topic/section "/>
+                <section class="- topic/section "/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN process as usual</x:label>
+                <section class="- topic/section "/>
+                <section class="- topic/section "/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN they're of some outputclass </x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="experience"/>
+                <section class="- topic/section " outputclass="experience"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before the first one and process them as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Experience</fo:block>
+                <section class="- topic/section " outputclass="experience"/>
+                <section class="- topic/section " outputclass="experience"/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN they're of different outputclasses </x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="experience"/>
+                <section class="- topic/section " outputclass="skills"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before the first ones each and process them as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Experience</fo:block>
+                <section class="- topic/section " outputclass="experience"/>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Skills</fo:block>
+                <section class="- topic/section " outputclass="skills"/>
+            </x:expect>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario pending="true">
+        <x:label>GIVEN a sidebar section</x:label>
+        <x:scenario>
+            <x:label>WHEN it's empty</x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="sidebar"/>
+            </x:context>
+            <x:expect test="exists(fo:float/section)">
+                <x:label>THEN wrap it in a container and move on</x:label>
+            </x:expect>
+        </x:scenario>
+    </x:scenario>
+</x:description>

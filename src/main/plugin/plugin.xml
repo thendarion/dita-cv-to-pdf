@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin id="linkedin.to.pdf">
     <require plugin="org.dita.pdf2"/>
-    <transtype name="dita-cv" extends="pdf" desc="DITA CV to PDF"/>
-    <feature extension="ant.import" file="conductor.xml"/>
+    <feature extension="dita.xsl.xslfo" file="xsl/fo/topic2fo.xsl"/>
+    <feature extension="dita.xsl.strings" file="xsl/common/strings.xml"/>
 </plugin>
