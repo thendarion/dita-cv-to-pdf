@@ -40,5 +40,25 @@
         </xsl:call-template>
         <xsl:next-match/>
     </xsl:template>
+    <xsl:template match="*[contains(@class,' topic/data ')][@name='company']">
+        <fo:block xsl:use-attribute-sets="cv.data.company">
+            <xsl:value-of select="@value"/>
+        </fo:block>
+    </xsl:template>
+    <xsl:template match="*[contains(@class,' topic/data ')][@name='startdate']">
+        <fo:block xsl:use-attribute-sets="cv.data.startdate">
+            <xsl:value-of select="@value"/>
+        </fo:block>
+        <xsl:if test="not(./following-sibling::*[contains(@class,' topic/data ')][@name='enddate'])">
+            <fo:block xsl:use-attribute-sets="cv.data.enddate">
+                <xsl:text>(present)</xsl:text>
+            </fo:block>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate']">
+        <fo:block xsl:use-attribute-sets="cv.data.enddate">
+            <xsl:value-of select="@value" />
+        </fo:block>
+    </xsl:template>
     
 </xsl:stylesheet>

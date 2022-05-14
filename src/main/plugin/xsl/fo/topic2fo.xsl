@@ -5,6 +5,5 @@
     exclude-result-prefixes="xs math"
     version="3.0">
     <xsl:import href="topic.xsl"/>
-    <xsl:import href="static-content.xsl"/>
     <xsl:import href="../../cfg/fo/attrs/topic-attr.xsl"/>
 </xsl:stylesheet>

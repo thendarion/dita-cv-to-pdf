@@ -101,15 +101,56 @@
             </x:expect>
         </x:scenario>
     </x:scenario>
-    <x:scenario pending="true">
-        <x:label>GIVEN a sidebar section</x:label>
+    <x:scenario>
+        <x:label>GIVEN section data</x:label>
         <x:scenario>
-            <x:label>WHEN it's empty</x:label>
+            <x:label>WHEN there's a company</x:label>
             <x:context>
-                <section class="- topic/section " outputclass="sidebar"/>
+                <data class="- topic/data " name="company" value="Company"/>
             </x:context>
-            <x:expect test="exists(fo:float/section)">
-                <x:label>THEN wrap it in a container and move on</x:label>
+            <x:expect>
+                <x:label>THEN add a company line</x:label>
+                <fo:block attribute-set="cv.data.company" font-style="italic">Company</fo:block>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN there's a start date</x:label>
+            <x:context>
+                <data class="- topic/data " name="startdate" value="start"/>
+            </x:context>
+            <x:expect test="fo:block[@attribute-set='cv.data.startdate']">
+                <x:label>THEN add a start date</x:label>
+                <fo:block attribute-set="cv.data.startdate">start</fo:block>
+            </x:expect>
+            <x:scenario>
+                <x:label>AND there's no end-date</x:label>
+                <x:expect>
+                    <x:label>THEN add (present) as end date</x:label>
+                    <fo:block attribute-set="cv.data.startdate">start</fo:block>
+                    <fo:block attribute-set="cv.data.enddate">(present)</fo:block>
+                </x:expect>
+            </x:scenario>
+            <x:scenario>
+                <x:label>AND there's an end-date</x:label>
+                <x:context>
+                    <data class="- topic/data " name="startdate" value="start"/>
+                    <data class="- topic/data " name="enddate" value="end"/>
+                </x:context>
+                <x:expect>
+                    <x:label>THEN add it as end date</x:label>
+                    <fo:block attribute-set="cv.data.startdate">start</fo:block>
+                    <fo:block attribute-set="cv.data.enddate">end</fo:block>
+                </x:expect>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario>
+            <x:label>WHEN there's an end date</x:label>
+            <x:context>
+                <data class="- topic/data " name="enddate" value="end"/>
+            </x:context>
+            <x:expect test="fo:block[@attribute-set='cv.data.enddate']">
+                <x:label>THEN add an end date</x:label>
+                <fo:block attribute-set="cv.data.enddate">end</fo:block>
             </x:expect>
         </x:scenario>
     </x:scenario>

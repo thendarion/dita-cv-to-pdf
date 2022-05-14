@@ -4,4 +4,5 @@
     <variable id="languages">Languages</variable>
     <variable id="skills">Skills</variable>
     <variable id="education">Education</variable>
+    <variable id="Product Name">generated with https://github.com/thendarion/dita-cv-to-pdf</variable>
 </vars>

@@ -11,3 +11,5 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 out
 out.txt
+/src/test/xspec/xspec
+/src/test/xspec/topic2fo-result.html

@@ -7,6 +7,15 @@
     <xsl:attribute-set name="section.title">
         <xsl:attribute name="attribute-set">section.title</xsl:attribute>
     </xsl:attribute-set>
+    <xsl:attribute-set name="cv.data.company">
+        <xsl:attribute name="attribute-set">cv.data.company</xsl:attribute>
+    </xsl:attribute-set>
+    <xsl:attribute-set name="cv.data.startdate">
+        <xsl:attribute name="attribute-set">cv.data.startdate</xsl:attribute>
+    </xsl:attribute-set>
+    <xsl:attribute-set name="cv.data.enddate">
+        <xsl:attribute name="attribute-set">cv.data.enddate</xsl:attribute>
+    </xsl:attribute-set>
     <xsl:template name="commonattributes">
         <xsl:attribute name="common">attributes</xsl:attribute>
     </xsl:template>
