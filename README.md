@@ -4,10 +4,17 @@ the purpose of this project is to have fun with DITA-OT. DITA has no specialisat
 
 # basic idea
 
-* Maven drives the process
+* Maven packages the project
 * DITA-OT renders the PDF
 
 # implementation idea
 
-* in the POM we just download and install dependencies
-* in DITA-OT, a custom plugin renders it to FO
+* in the POM 
+  * test code
+  * download and install dependencies
+* in DITA-OT
+  * FO customisations
+
+# how to build
+
+* run `mvn package` from your Windows terminal 
