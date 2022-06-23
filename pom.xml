@@ -195,6 +195,7 @@
                                         <argument>${project.build.directory}/dita-ot-${dita.ot.version}/bin/dita</argument>
                                         <argument>--format=pdf</argument>
                                         <argument>--input=${cv.source}</argument>
+                                        <argument>--output=${project.build.directory}/out</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
