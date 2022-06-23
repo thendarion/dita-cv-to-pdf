@@ -97,7 +97,7 @@
                         <version>1.6.8</version>
                         <executions>
                             <execution>
-                                <id>get dita-ot</id>
+                                <id>get dita-ot-${dita.ot.version}</id>
                                 <phase>test</phase>
                                 <goals>
                                     <goal>wget</goal>
