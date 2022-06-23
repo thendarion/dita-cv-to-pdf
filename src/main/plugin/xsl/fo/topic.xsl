@@ -64,7 +64,7 @@
         </fo:inline>
     </xsl:template>
     <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate']"/>
-    <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate'][not(preceding-sibling::*[contains(@class,' topic/data ')][@name='startdate'])]">
+    <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate'][not(preceding-sibling::*[contains(@class,' topic/data ')][@name='startdate'])]" priority="1">
         <fo:inline xsl:use-attribute-sets="cv.data.enddate">
             <xsl:value-of select="@value"/>
         </fo:inline>
