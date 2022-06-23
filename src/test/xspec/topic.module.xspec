@@ -118,16 +118,17 @@
             <x:context>
                 <data class="- topic/data " name="startdate" value="start"/>
             </x:context>
-            <x:expect test="fo:block[@attribute-set='cv.data.startdate']">
+            <x:expect test="fo:inline[@attribute-set='cv.data.startdate']">
                 <x:label>THEN add a start date</x:label>
-                <fo:block attribute-set="cv.data.startdate">start</fo:block>
+                <fo:inline attribute-set="cv.data.startdate">start</fo:inline>
             </x:expect>
             <x:scenario>
                 <x:label>AND there's no end-date</x:label>
                 <x:expect>
                     <x:label>THEN add (present) as end date</x:label>
-                    <fo:block attribute-set="cv.data.startdate">start</fo:block>
-                    <fo:block attribute-set="cv.data.enddate">(present)</fo:block>
+                    <fo:inline attribute-set="cv.data.startdate">start</fo:inline>
+                    <fo:inline>&#8211;</fo:inline>
+                    <fo:inline attribute-set="cv.data.enddate">(present)</fo:inline>
                 </x:expect>
             </x:scenario>
             <x:scenario>
@@ -138,8 +139,9 @@
                 </x:context>
                 <x:expect>
                     <x:label>THEN add it as end date</x:label>
-                    <fo:block attribute-set="cv.data.startdate">start</fo:block>
-                    <fo:block attribute-set="cv.data.enddate">end</fo:block>
+                    <fo:inline attribute-set="cv.data.startdate">start</fo:inline>
+                    <fo:inline>&#8211;</fo:inline>
+                    <fo:inline attribute-set="cv.data.enddate">end</fo:inline>
                 </x:expect>
             </x:scenario>
         </x:scenario>
@@ -148,9 +150,9 @@
             <x:context>
                 <data class="- topic/data " name="enddate" value="end"/>
             </x:context>
-            <x:expect test="fo:block[@attribute-set='cv.data.enddate']">
+            <x:expect test="fo:inline[@attribute-set='cv.data.enddate']">
                 <x:label>THEN add an end date</x:label>
-                <fo:block attribute-set="cv.data.enddate">end</fo:block>
+                <fo:inline attribute-set="cv.data.enddate">end</fo:inline>
             </x:expect>
         </x:scenario>
     </x:scenario>

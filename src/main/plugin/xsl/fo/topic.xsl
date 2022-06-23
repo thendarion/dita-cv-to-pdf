@@ -46,19 +46,27 @@
         </fo:block>
     </xsl:template>
     <xsl:template match="*[contains(@class,' topic/data ')][@name='startdate']">
-        <fo:block xsl:use-attribute-sets="cv.data.startdate">
+        <fo:inline xsl:use-attribute-sets="cv.data.startdate">
             <xsl:value-of select="@value"/>
-        </fo:block>
-        <xsl:if test="not(./following-sibling::*[contains(@class,' topic/data ')][@name='enddate'])">
-            <fo:block xsl:use-attribute-sets="cv.data.enddate">
-                <xsl:text>(present)</xsl:text>
-            </fo:block>
-        </xsl:if>
+        </fo:inline>
+        <fo:inline>
+            <xsl:text>&#8211;</xsl:text>
+        </fo:inline>
+        <fo:inline xsl:use-attribute-sets="cv.data.enddate">
+            <xsl:choose>
+                <xsl:when test="exists(./following-sibling::*[contains(@class,' topic/data ')][@name='enddate'])">
+                    <xsl:value-of select="./following-sibling::*[contains(@class,' topic/data ')][@name='enddate']/@value"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>(present)</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </fo:inline>
     </xsl:template>
-    <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate']">
-        <fo:block xsl:use-attribute-sets="cv.data.enddate">
-            <xsl:value-of select="@value" />
-        </fo:block>
+    <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate']"/>
+    <xsl:template match="*[contains(@class,' topic/data ')][@name='enddate'][not(preceding-sibling::*[contains(@class,' topic/data ')][@name='startdate'])]">
+        <fo:inline xsl:use-attribute-sets="cv.data.enddate">
+            <xsl:value-of select="@value"/>
+        </fo:inline>
     </xsl:template>
-    
 </xsl:stylesheet>
