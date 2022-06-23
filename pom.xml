@@ -10,7 +10,7 @@
     <properties>
         <revision>1.0.0</revision>
         <changelist>-SNAPSHOT</changelist>
-        <dita.ot.version>3.7.1</dita.ot.version>
+        <dita.ot.version>3.7.2</dita.ot.version>
         <cv.source>src/test/resources/cv.dita</cv.source>
         <saxon.version>9.9.1-7</saxon.version>
         <xspec.maven.version>2.0.0</xspec.maven.version>
