@@ -19,4 +19,18 @@
         <xsl:attribute name="font-style">italic</xsl:attribute>
     </xsl:attribute-set>
 
+    <xsl:attribute-set name="section">
+        <xsl:attribute name="space-after">2em</xsl:attribute>
+        <xsl:attribute name="space-before">2em</xsl:attribute>
+    </xsl:attribute-set>
+
+    <xsl:attribute-set name="related-links">
+        <xsl:attribute name="space-after">4em</xsl:attribute>
+        <xsl:attribute name="space-before">4em</xsl:attribute>
+    </xsl:attribute-set>
+
+    <xsl:attribute-set name="link__shortdesc">
+        <xsl:attribute name="start-indent">6pt + from-parent(start-indent)</xsl:attribute>
+    </xsl:attribute-set>
+
 </xsl:stylesheet>

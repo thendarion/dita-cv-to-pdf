@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <vars xmlns="http://www.idiominc.com/opentopic/vars">
-    <variable id="experience">Experience</variable>
-    <variable id="languages">Languages</variable>
-    <variable id="skills">Skills</variable>
-    <variable id="education">Education</variable>
+    <variable id="Experience">Experience</variable>
+    <variable id="Languages">Languages</variable>
+    <variable id="Skills">Skills</variable>
+    <variable id="Education">Education</variable>
     <variable id="Product Name">generated with https://github.com/thendarion/dita-cv-to-pdf</variable>
 </vars>

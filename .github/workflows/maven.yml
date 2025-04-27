@@ -30,4 +30,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-output
-        path: target/cv.to.pdf-2.0.0-SNAPSHOT.zip
+        path: |
+          target/cv.to.pdf-2.0.0-SNAPSHOT.zip
+          target/out/cv.pdf
+          target/out/cover_letter.pdf

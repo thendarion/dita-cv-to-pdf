@@ -23,9 +23,13 @@
 		</section>
 	</body>
 	<related-links>
-		<link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/src/tes/resource/cover_letter.dita">
+		<link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cover_letter.dita">
 			<linktext>Cover letter DITA source</linktext>
 			<desc>The source of this cover letter in DITA format</desc>
+		</link>
+		<link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/">
+			<linktext>DITA-CV-to-PDF on GitHub</linktext>
+			<desc>The parent project of this cover letter that rendered it</desc>
 		</link>
 	</related-links>
 </topic>

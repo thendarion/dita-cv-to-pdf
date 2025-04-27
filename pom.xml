@@ -16,7 +16,20 @@
         <xspec.maven.version>2.0.0</xspec.maven.version>
         <xspec.version>1.6.0</xspec.version>
     </properties>
-    
+
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>${saxon.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.xspec</groupId>
+            <artifactId>xspec</artifactId>
+            <version>${xspec.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -75,7 +88,7 @@
                 <executions>
                     <execution>
                         <id>copy plugin files</id>
-                        <phase>test</phase>
+                        <phase>compile</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -96,37 +109,39 @@
 
             <plugin>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
                 <groupId>org.codehaus.mojo</groupId>
                 <executions>
                     <execution>
                         <id>dita install</id>
-                        <phase>test</phase>
+                        <phase>compile</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>sh</executable>
+                            <executable>${project.build.directory}/dita-ot-${dita.ot.version}/bin/dita</executable>
                             <arguments>
-                                <argument>${project.build.directory}/dita-ot-${dita.ot.version}/bin/dita</argument>
                                 <argument>--install</argument>
                             </arguments>
-                        </configuration>
+                            <redirectOutput>true</redirectOutput>
+                    </configuration>
                     </execution>
                     <execution>
                         <id>dita cv-to-pdf</id>
-                        <phase>test</phase>
+                        <phase>compile</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>sh</executable>
+                            <executable>${project.build.directory}/dita-ot-${dita.ot.version}/bin/dita</executable>
                             <arguments>
-                                <argument>${project.build.directory}/dita-ot-${dita.ot.version}/bin/dita</argument>
-                                <argument>--format=pdf</argument>
-                                <argument>--input=${cv.source}</argument>
-                                <argument>--output=${project.build.directory}/out</argument>
+                                <argument>--project=dita-project.xml</argument>
+                                <argument>--output=target/out</argument>
                             </arguments>
+                            <environmentVariables>
+                                <PATH>${project.build.directory}/dita-ot-${dita.ot.version}/bin:${env.PATH}</PATH>
+                            </environmentVariables>
+                            <redirectOutput>true</redirectOutput>
                         </configuration>
                     </execution>
                 </executions>

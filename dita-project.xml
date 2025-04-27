@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://www.dita-ot.org/rng/project.rnc" type="application/relax-ng-compact-syntax"?>
+<project xmlns="https://www.dita-ot.org/project">
+  <deliverable name="CV" id="cv">
+    <context name="cv">
+        <input href="src/test/resources/cv.dita"/>
+    </context>
+    <output href="."/>
+    <publication transtype="pdf"/>
+  </deliverable>
+  <deliverable name="Cover Letter" id="cover_letter">
+    <context name="cover_letter">
+        <input href="src/test/resources/cover_letter.dita"/>
+    </context>
+    <output href="."/>
+    <publication transtype="pdf"/>
+  </deliverable>
+</project>
