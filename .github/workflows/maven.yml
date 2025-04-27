@@ -22,5 +22,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Prepare Maven
+      run: mvn --go-offline verify --batch-mode
     - name: Build with Maven
       run: mvn package --batch-mode
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: target/cv.to.pdf-2.0.0-SNAPSHOT.zip
