@@ -1,35 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
 <topic xml:lang="en-US" id="cover_letter">
-	<title>Cover letter</title>
-	<shortdesc>This cover letter helps you arrive at the best conclusion.</shortdesc>
-	<prolog>
-		<author>David Bertalan</author>
-	</prolog>
-	<body>
-		<draft-comment>The four-paragraph structure seems to be common enough so we stick to it in this example. Feel free to change it up as needed.</draft-comment>
-		<section>
-			<p>Dear Hiring Manager,</p>
-		</section>
-		<section>
-			<p>I am writing to express my interest in the [Job Title] position at [Company Name]. With my background in [Your Field/Industry] and my passion for [Relevant Skills/Interests], I believe I would be a valuable addition to your team.</p>
-			<p>Throughout my career, I have developed strong skills in [Key Skills or Experiences Relevant to the Job]. I am particularly drawn to this position because [Reason Why You Are Interested in the Job/Company].</p>
-			<p>I am excited about the opportunity to contribute to [Company Name] and help achieve [Company Goals or Values]. I am confident that my skills and experiences align well with the requirements of the position.</p>
-			<p>Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute to your team.</p>
-		</section>
-		<section>
-			<p>Sincerely,</p>
-			<p>David Bertalan</p>
-		</section>
-	</body>
-	<related-links>
-		<link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cover_letter.dita">
-			<linktext>Cover letter DITA source</linktext>
-			<desc>The source of this cover letter in DITA format</desc>
-		</link>
-		<link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/">
-			<linktext>DITA-CV-to-PDF on GitHub</linktext>
-			<desc>The parent project of this cover letter that rendered it</desc>
-		</link>
-	</related-links>
+    <title>Cover letter</title>
+    <shortdesc>A professional cover letter template for job applications.</shortdesc>
+    <prolog>
+        <author>Your Name</author>
+    </prolog>
+    <body>
+        <draft-comment>This template uses the common four-paragraph structure. Customize it to suit your needs.</draft-comment>
+        <section>
+            <p>Dear [Hiring Manager's Name],</p>
+        </section>
+        <section>
+            <p>I am writing to express my interest in the [Job Title] position at [Company Name], as advertised on [Job Board/Website]. With my background in [Your Field/Industry] and my passion for [Relevant Skills/Interests], I believe I would be a valuable addition to your team.</p>
+            <p>In my previous role at [Previous Company], I successfully [Achievement, e.g., "increased sales by 20%"]. I am particularly drawn to this position because [Reason Why You Are Interested in the Job/Company].</p>
+            <p>I am excited about the opportunity to contribute to [Company Name] and help achieve [Company Goals or Values]. I am confident that my skills and experiences align well with the requirements of the position.</p>
+            <p>Thank you for your time and consideration. I look forward to the opportunity to contribute to [Company Name].</p>
+        </section>
+        <section>
+            <p>Sincerely,</p>
+            <p>Your Name</p>
+        </section>
+    </body>
+    <related-links>
+        <link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cover_letter.dita">
+            <linktext>Cover letter DITA source (template)</linktext>
+            <desc>The source template of this cover letter in DITA format</desc>
+        </link>
+        <link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/">
+            <linktext>DITA-CV-to-PDF on GitHub</linktext>
+            <desc>The parent project of this cover letter that rendered it</desc>
+        </link>
+    </related-links>
 </topic>
