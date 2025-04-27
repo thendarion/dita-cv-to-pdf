@@ -23,7 +23,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Prepare Maven
-      run: mvn --go-offline verify --batch-mode
+      run: mvn org.apache.maven.plugins:maven-dependency-plugin:3.8.1:go-offline --batch-mode
     - name: Build with Maven
       run: mvn package --batch-mode
     - name: Upload Artifact
