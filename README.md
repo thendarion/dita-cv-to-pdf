@@ -1,20 +1,30 @@
-# cv.to.pdf exercise for fun
+# cv.to.pdf [WIP]
 
-the purpose of this project is to have fun with DITA-OT. DITA has no specialisation for writing CVs, so we improvise
+in this project I build a custom DITA-OT plugin to enable writing CV and Cover Letter sources in DITA format. it is a work in progress
 
-# basic idea
+# Overview
 
-* Maven packages the project
-* DITA-OT renders the PDF
+* the Maven POM governs the project 
+  * downloads and install dependencies
+  * runs tests and render PDFs
+  * packages the plugin as ZIP
+* in DITA-OT 
+  * a new plugin renders custom FO for PDF rendering
+  * XSL templates with some XSpec tests add custom functionality
 
-# implementation idea
+# Using the plugin
 
-* in the POM 
-  * test code
-  * download and install dependencies
-* in DITA-OT
-  * FO customisations
+## Building the PDFs
+if you just want to build the PDFs with DITA-OT
+* run `mvn compile`
 
-# how to build
+## Testing the XSL templates
+if you want to modify/add to the custom XSL and XSpec in the plugin and want to make use of the built-in executor in the POM
+* run `mvn test`
 
-* run `mvn package` from your Windows terminal 
+## Assembling the plugin into a ZIP file
+if you want to distribute the plugin in some way
+* run `mvn package`
+
+# Reporting bugs
+please open an issue if you find anything weird
