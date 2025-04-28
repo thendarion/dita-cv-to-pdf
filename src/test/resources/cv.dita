@@ -30,7 +30,7 @@
                                 </dlentry>
                                 <dlentry>
                                     <dt>LinkedIn</dt>
-                                    <dd><xref href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</xref></dd>
+                                    <dd><xref scope="external" href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</xref></dd>
                                 </dlentry>
                             </dl>
                         </entry>
