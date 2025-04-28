@@ -25,8 +25,8 @@
     </xsl:attribute-set>
 
     <xsl:attribute-set name="related-links">
-        <xsl:attribute name="space-after">4em</xsl:attribute>
-        <xsl:attribute name="space-before">4em</xsl:attribute>
+        <xsl:attribute name="space-before">5cm</xsl:attribute>
+        <xsl:attribute name="font-size">9pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="link__shortdesc">
