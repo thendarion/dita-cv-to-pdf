@@ -26,5 +26,10 @@ if you want to modify/add to the custom XSL and XSpec in the plugin and want to 
 if you want to distribute the plugin in some way
 * run `mvn package`
 
+## Customizing the content
+if you want to insert your own content, you can do it by modifying the source DITA
+1. go to [src/test/resources](src/test/resources)
+1. use the templates to write your own CV and Cover Letter
+
 # Reporting bugs
 please open an issue if you find anything weird
