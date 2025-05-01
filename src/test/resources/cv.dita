@@ -62,11 +62,10 @@
             </ul>
         </section>
         <section outputclass="education">
-            <title>Education</title>
-            <data name="institution" value="Your University"/>
-            <data name="degree" value="Your Degree (e.g., Bachelor of Science in Computer Science)"/>
-            <data name="startdate" value="2014"/>
-            <data name="enddate" value="2018"/>
+            <title>Your Degree</title>
+            <data name="company" value="Your University"/>
+            <data name="startdate" value="2008"/>
+            <data name="enddate" value="2012"/>
         </section>
         <section outputclass="skills">
             <title>Skills</title>
