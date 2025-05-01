@@ -21,8 +21,8 @@
             <p>Sincerely,</p>
             <p>[Your Name]</p>
             <p>[Your Phone Number]</p>
-            <p><xref href="mailto:Your Email" scope="external">Your Email</xref></p>
-            <p><xref href="Your LinkedIn Profile URL" scope="external">Your LinkedIn Profile URL</xref></p>
+            <p><xref href="mailto:Your_Email" scope="external">Your Email</xref></p>
+            <p><xref href="Your_LinkedIn_Profile_URL" scope="external">Your LinkedIn Profile URL</xref></p>
         </section>
     </body>
     <related-links conref="related-links.dita/#related-links"/>
