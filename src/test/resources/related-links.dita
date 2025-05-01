@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="conrefs">
+    <title>Conrefs</title>
+    <body/>
+    <related-links id="related-links">
+        <link scope="external" product="cover_letter"
+            href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cover_letter.dita">
+            <linktext>Cover letter DITA source (template)</linktext>
+            <desc>The DITA source template of this cover letter</desc>
+        </link>
+        <link scope="external" product="cv"
+            href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cv.dita">
+            <linktext>CV DITA source (template)</linktext>
+            <desc>The DITA source template of this CV</desc>
+        </link>
+        <link id="github" scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/">
+            <linktext>DITA-CV-to-PDF on GitHub</linktext>
+            <desc>My project that rendered this PDF</desc>
+        </link>
+    </related-links>
+</topic>

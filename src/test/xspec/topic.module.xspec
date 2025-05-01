@@ -48,7 +48,7 @@
             </x:expect>
         </x:scenario>
         <x:scenario>
-            <x:label>WHEN it is of outputclass education</x:label>
+            <x:label>WHEN it is of outputclass languages</x:label>
             <x:context>
                 <section class="- topic/section " outputclass="languages"/>
             </x:context>

@@ -19,17 +19,11 @@
         </section>
         <section>
             <p>Sincerely,</p>
-            <p>Your Name</p>
+            <p>[Your Name]</p>
+            <p>[Your Phone Number]</p>
+            <p><xref href="mailto:Your Email" scope="external">Your Email</xref></p>
+            <p><xref href="Your LinkedIn Profile URL" scope="external">Your LinkedIn Profile URL</xref></p>
         </section>
     </body>
-    <related-links>
-        <link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cover_letter.dita">
-            <linktext>Cover letter DITA source (template)</linktext>
-            <desc>The source template of this cover letter in DITA format</desc>
-        </link>
-        <link scope="external" href="https://github.com/thendarion/dita-cv-to-pdf/">
-            <linktext>DITA-CV-to-PDF on GitHub</linktext>
-            <desc>The parent project of this cover letter that rendered it</desc>
-        </link>
-    </related-links>
+    <related-links conref="related-links.dita/#related-links"/>
 </topic>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <topicref href="cv.dita" keys="cv"/>
+    <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content"/>
+    <topicref href="related-links.dita" processing-role="resource-only" keys="related-links"/>
+</map>

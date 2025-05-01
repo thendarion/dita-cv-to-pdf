@@ -2,9 +2,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+    xmlns:fo="http://www.w3.org/1999/XSL/Format"
     exclude-result-prefixes="xs math"
     version="3.0">
-    <xsl:import href="settings.xsl"/>
-    <xsl:import href="topic.xsl"/>
-    <xsl:import href="../../cfg/fo/attrs/topic-attr.xsl"/>
+    <xsl:variable name="generate-front-cover" select="false()"/>
+    <xsl:variable name="generate-toc" select="false()"/>
 </xsl:stylesheet>

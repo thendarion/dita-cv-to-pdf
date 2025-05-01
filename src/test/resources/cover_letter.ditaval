@@ -1,0 +1,4 @@
+<val>
+   <prop action="exclude"/>
+   <prop action="include" att="product" val="cover_letter"/>
+</val>
