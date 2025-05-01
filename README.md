@@ -28,7 +28,7 @@ if you want to distribute the plugin in some way
 
 ## Customizing the content
 if you want to insert your own content, you can do it by modifying the source DITA
-1. go to [src/test/resources](src/test/resources)
+1. go to [src/main/content](src/main/content)
 1. use the templates to write your own CV and Cover Letter
 
 # Reporting bugs

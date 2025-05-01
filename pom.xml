@@ -11,7 +11,7 @@
         <revision>2.0.0</revision>
         <changelist>-SNAPSHOT</changelist>
         <dita.ot.version>4.3.1</dita.ot.version>
-        <cv.source>src/test/resources/cv.dita</cv.source>
+        <cv.source>src/main/content/cv.dita</cv.source>
         <saxon.version>9.9.1-7</saxon.version>
         <xspec.maven.version>2.0.0</xspec.maven.version>
         <xspec.version>1.6.0</xspec.version>

@@ -13,5 +13,5 @@ out
 out.txt
 src/test/xspec/xspec
 src/test/xspec/topic2fo-result.html
-src/test/resources/cv_content.dita
-src/test/resources/profile.jpeg
+src/main/content/cv_content.dita
+src/main/content/profile.jpeg

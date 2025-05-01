@@ -5,12 +5,12 @@
     <body/>
     <related-links id="related-links">
         <link scope="external" product="cover_letter"
-            href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cover_letter.dita">
+            href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/main/content/cover_letter.dita">
             <linktext>Cover letter DITA source (template)</linktext>
             <desc>The DITA source template of this cover letter</desc>
         </link>
         <link scope="external" product="cv"
-            href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/test/resources/cv.dita">
+            href="https://github.com/thendarion/dita-cv-to-pdf/blob/main/src/main/content/cv.dita">
             <linktext>CV DITA source (template)</linktext>
             <desc>The DITA source template of this CV</desc>
         </link>

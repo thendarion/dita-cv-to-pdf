@@ -3,9 +3,9 @@
 <project xmlns="https://www.dita-ot.org/project">
   <deliverable name="CV" id="cv">
     <context name="cv">
-      <input href="src/test/resources/cv.ditamap" />
+      <input href="src/main/content/cv.ditamap" />
       <profile>
-        <ditaval href="src/test/resources/cv.ditaval" />
+        <ditaval href="src/main/content/cv.ditaval" />
       </profile>
     </context>
     <output href="." />
@@ -13,9 +13,9 @@
   </deliverable>
   <deliverable name="Cover Letter" id="cover_letter">
     <context name="cover_letter">
-      <input href="src/test/resources/cover_letter.dita" />
+      <input href="src/main/content/cover_letter.dita" />
       <profile>
-        <ditaval href="src/test/resources/cover_letter.ditaval" />
+        <ditaval href="src/main/content/cover_letter.ditaval" />
       </profile>
     </context>
     <output href="." />
