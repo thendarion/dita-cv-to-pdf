@@ -3,9 +3,6 @@
 <topic id="cv">
     <title>Curriculum Vitae</title>
     <shortdesc id="shortdesc">A professional CV template for showcasing your skills, experience, and education.</shortdesc>
-    <prolog>
-        <author id="author">Your name</author>
-    </prolog>
     <body>
         <table frame="none" id="contact_information">
             <tgroup cols="2">

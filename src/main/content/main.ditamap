@@ -6,7 +6,13 @@
             <prodname>David Bertalan</prodname>
         </prodinfo>
     </topicmeta>
-    <topicref href="cv.dita" keys="cv"/>
-    <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content"/>
+    <topicgroup product="cv">
+        <topicref href="cv.dita" keys="cv"/>
+        <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content"/>    
+    </topicgroup>
+    <topicgroup product="cover_letter">
+        <topicref href="cover_letter.dita" keys="cover_letter"/>
+        <topicref href="cover_letter_content.dita" processing-role="resource-only" keys="cover_letter_content"/>
+    </topicgroup>
     <topicref href="related-links.dita" processing-role="resource-only" keys="related-links"/>
 </map>

@@ -3,22 +3,26 @@
 <project xmlns="https://www.dita-ot.org/project">
   <deliverable name="CV" id="cv">
     <context name="cv">
-      <input href="src/main/content/cv.ditamap" />
+      <input href="src/main/content/main.ditamap" />
       <profile>
         <ditaval href="src/main/content/cv.ditaval" />
       </profile>
     </context>
     <output href="." />
-    <publication transtype="pdf" />
+    <publication transtype="pdf">
+      <param name="args.output.base" value="cv"/>
+    </publication>
   </deliverable>
   <deliverable name="Cover Letter" id="cover_letter">
     <context name="cover_letter">
-      <input href="src/main/content/cover_letter.dita" />
+      <input href="src/main/content/main.ditamap" />
       <profile>
         <ditaval href="src/main/content/cover_letter.ditaval" />
       </profile>
     </context>
     <output href="." />
-    <publication transtype="pdf" />
+    <publication transtype="pdf">
+      <param name="args.output.base" value="cover_letter"/>
+    </publication>
   </deliverable>
 </project>

@@ -2,28 +2,27 @@
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
 <topic xml:lang="en-US" id="cover_letter">
     <title>Cover letter</title>
-    <shortdesc>A professional cover letter template for job applications.</shortdesc>
-    <prolog>
-        <author>Your Name</author>
-    </prolog>
+    <shortdesc id="shortdesc">A professional cover letter template for job applications.</shortdesc>
     <body>
         <draft-comment>This template uses the common four-paragraph structure. Customize it to suit your needs.</draft-comment>
-        <section>
-            <p>Dear [Hiring Manager's Name],</p>
-        </section>
-        <section>
-            <p>I am writing to express my interest in the [Job Title] position at [Company Name], as advertised on [Job Board/Website]. With my background in [Your Field/Industry] and my passion for [Relevant Skills/Interests], I believe I would be a valuable addition to your team.</p>
-            <p>In my previous role at [Previous Company], I successfully [Achievement, e.g., "increased sales by 20%"]. I am particularly drawn to this position because [Reason Why You Are Interested in the Job/Company].</p>
-            <p>I am excited about the opportunity to contribute to [Company Name] and help achieve [Company Goals or Values]. I am confident that my skills and experiences align well with the requirements of the position.</p>
-            <p>Thank you for your time and consideration. I look forward to the opportunity to contribute to [Company Name].</p>
-        </section>
-        <section>
-            <p>Sincerely,</p>
-            <p>[Your Name]</p>
-            <p>[Your Phone Number]</p>
-            <p><xref href="mailto:Your_Email" scope="external">Your Email</xref></p>
-            <p><xref href="Your_LinkedIn_Profile_URL" scope="external">Your LinkedIn Profile URL</xref></p>
-        </section>
+        <bodydiv id="body">
+            <section>
+                <p>Dear [Hiring Manager's Name],</p>
+            </section>
+            <section>
+                <p>I am writing to express my interest in the [Job Title] position at [Company Name], as advertised on [Job Board/Website]. With my background in [Your Field/Industry] and my passion for [Relevant Skills/Interests], I believe I would be a valuable addition to your team.</p>
+                <p>In my previous role at [Previous Company], I successfully [Achievement, e.g., "increased sales by 20%"]. I am particularly drawn to this position because [Reason Why You Are Interested in the Job/Company].</p>
+                <p>I am excited about the opportunity to contribute to [Company Name] and help achieve [Company Goals or Values]. I am confident that my skills and experiences align well with the requirements of the position.</p>
+                <p>Thank you for your time and consideration. I look forward to the opportunity to contribute to [Company Name].</p>
+            </section>
+            <section>
+                <p>Sincerely,</p>
+                <p>[Your Name]</p>
+                <p>[Your Phone Number]</p>
+                <p><xref href="mailto:Your_Email" scope="external">Your Email</xref></p>
+                <p><xref href="Your_LinkedIn_Profile_URL" scope="external">Your LinkedIn Profile URL</xref></p>
+            </section>
+        </bodydiv>
     </body>
     <related-links conref="related-links.dita/#related-links"/>
 </topic>
