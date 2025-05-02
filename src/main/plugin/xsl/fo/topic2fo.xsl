@@ -7,4 +7,5 @@
     <xsl:import href="settings.xsl"/>
     <xsl:import href="topic.xsl"/>
     <xsl:import href="../../cfg/fo/attrs/topic-attr.xsl"/>
+    <xsl:import href="../../cfg/fo/attrs/commons-attr.xsl"/>
 </xsl:stylesheet>
