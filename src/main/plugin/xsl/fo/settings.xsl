@@ -7,4 +7,5 @@
     version="3.0">
     <xsl:variable name="generate-front-cover" select="false()"/>
     <xsl:variable name="generate-toc" select="false()"/>
+    <xsl:variable name="generate-back-cover" select="false()"/>
 </xsl:stylesheet>

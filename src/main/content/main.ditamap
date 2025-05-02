@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
-<map>
-    <topicmeta>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <bookmeta>
+        <author type="creator"><keyword conkeyref="keys/author" /></author>
         <prodinfo>
-            <prodname>David Bertalan</prodname>
+            <prodname><keyword conkeyref="keys/author" /></prodname>
         </prodinfo>
-    </topicmeta>
-    <topicgroup product="cv">
-        <topicref href="cv.dita" keys="cv"/>
-        <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content"/>    
-    </topicgroup>
-    <topicgroup product="cover_letter">
-        <topicref href="cover_letter.dita" keys="cover_letter"/>
-        <topicref href="cover_letter_content.dita" processing-role="resource-only" keys="cover_letter_content"/>
-    </topicgroup>
-    <topicref href="related-links.dita" processing-role="resource-only" keys="related-links"/>
-</map>
+    </bookmeta>
+    <chapter>
+        <mapref href="keys.ditamap" keys="keys" />
+        <topicgroup product="cv">
+            <topicref href="cv.dita" keys="cv" />
+            <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content" />
+        </topicgroup>
+        <topicgroup product="cover_letter">
+            <topicref href="cover_letter.dita" keys="cover_letter" />
+            <topicref href="cover_letter_content.dita" processing-role="resource-only"
+                keys="cover_letter_content" />
+        </topicgroup>
+        <topicref href="related-links.dita" processing-role="resource-only" keys="related-links" />
+    </chapter>
+</bookmap>
