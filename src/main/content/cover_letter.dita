@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
 <topic xml:lang="en-US" id="cover_letter">
-    <title>Cover letter</title>
+    <title id="title">Cover letter</title>
     <shortdesc id="shortdesc">A professional cover letter template for job applications.</shortdesc>
     <body>
         <draft-comment>This template uses the common four-paragraph structure. Customize it to suit your needs.</draft-comment>

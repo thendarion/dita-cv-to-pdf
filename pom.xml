@@ -65,11 +65,11 @@
             <plugin>
                 <groupId>com.googlecode.maven-download-plugin</groupId>
                 <artifactId>download-maven-plugin</artifactId>
-                <version>1.6.8</version>
+                <version>1.13.0</version>
                 <executions>
                     <execution>
                         <id>get dita-ot-${dita.ot.version}</id>
-                        <phase>validate</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>wget</goal>
                         </goals>
@@ -88,7 +88,7 @@
                 <executions>
                     <execution>
                         <id>copy plugin files</id>
-                        <phase>compile</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -114,7 +114,7 @@
                 <executions>
                     <execution>
                         <id>dita install</id>
-                        <phase>compile</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -128,7 +128,7 @@
                     </execution>
                     <execution>
                         <id>dita cv-to-pdf</id>
-                        <phase>compile</phase>
+                        <phase>integration-test</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>

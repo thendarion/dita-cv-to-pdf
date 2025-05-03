@@ -15,11 +15,11 @@ in this project I build a custom DITA-OT plugin to enable writing CV and Cover L
 # Using the plugin
 
 ## Building the PDFs
-if you just want to build the PDFs with DITA-OT
-* run `mvn compile`
+if you want to build the PDFs with DITA-OT
+* run `mvn verify -DskipTests`
 
 ## Testing the XSL templates
-if you want to modify/add to the custom XSL and XSpec in the plugin and want to make use of the built-in executor in the POM
+if you want to modify/add to the custom XSL and XSpec in the plugin and want to make use of the built-in executor in the POM to run the tests
 * run `mvn test`
 
 ## Assembling the plugin into a ZIP file

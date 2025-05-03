@@ -20,12 +20,16 @@
     </xsl:attribute-set>
 
     <xsl:attribute-set name="section">
-        <xsl:attribute name="space-after">2em</xsl:attribute>
-        <xsl:attribute name="space-before">2em</xsl:attribute>
+        <xsl:attribute name="space-before-minimum">1em</xsl:attribute>
+        <xsl:attribute name="space-before-optimum">2em</xsl:attribute>
+        <xsl:attribute name="space-before-maximum">3em</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="related-links">
-        <xsl:attribute name="space-before">5cm</xsl:attribute>
+        <xsl:attribute name="space-before">3cm</xsl:attribute>
+        <xsl:attribute name="space-before-minimum">2cm</xsl:attribute>
+        <xsl:attribute name="space-before-optimum">5cm</xsl:attribute>
+        <xsl:attribute name="space-before-maximum">10cm</xsl:attribute>
         <xsl:attribute name="font-size">9pt</xsl:attribute>
     </xsl:attribute-set>
 

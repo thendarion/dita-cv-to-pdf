@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
 <topic id="cv">
-    <title>Curriculum Vitae</title>
+    <title id="title">Your Name</title>
     <shortdesc id="shortdesc">A professional CV template for showcasing your skills, experience, and education.</shortdesc>
     <body>
         <table frame="none" id="contact_information">
@@ -16,8 +16,9 @@
                         <entry>
                             <dl>
                                 <dlentry>
-                                    <dt>Name</dt>
-                                    <dd>Your Name</dd>
+                                    <dt>Top skills</dt>
+                                    <dd>Python</dd>
+                                    <dd>Git</dd>
                                 </dlentry>
                                 <dlentry>
                                     <dt>Email</dt>
@@ -41,9 +42,9 @@
         <bodydiv id="experience">
             <section outputclass="experience">
                 <title>Professional Experience</title>
-                <data name="company" value="Company Name"/>
-                <data name="startdate" value="2020"/>
-                <data name="enddate" value="Present"/>
+                <data name="company">Company Name</data>
+                <data name="startdate">2020</data>
+                <data name="enddate">Present</data>
                 <ul>
                     <li>Led a team of X members to achieve [specific goal or project].</li>
                     <li>Implemented [specific technology or process] to improve [specific outcome].</li>
@@ -53,9 +54,9 @@
             </section>
             <section outputclass="experience">
                 <title>Previous Position</title>
-                <data name="company" value="Previous Company"/>
-                <data name="startdate" value="2018"/>
-                <data name="enddate" value="2020"/>
+                <data name="company">Previous Company</data>
+                <data name="startdate">2018</data>
+                <data name="enddate">2020</data>
                 <ul>
                     <li>Developed [specific skills or technologies] while working on [specific projects].</li>
                     <li>Contributed to [specific achievements or outcomes].</li>
@@ -66,15 +67,12 @@
         <bodydiv id="education">
             <section outputclass="education" >
                 <title>Bachelor of Awesome in Cool Field</title>
-                <data name="company"
-                    value="Your University" />
-                <data name="startdate" value="2008" />
-                <data
-                    name="enddate" value="2012" />
+                <data name="company">Your University</data>
+                <data name="startdate">2008</data>
+                <data name="enddate">2012</data>
             </section>
         </bodydiv>
         <section outputclass="skills" id="skills">
-            <title>Skills</title>
             <ul>
                 <li>Programming Languages: Python, Java, C++</li>
                 <li>Web Development: HTML, CSS, JavaScript, React</li>
@@ -83,7 +81,6 @@
             </ul>
         </section>
         <section outputclass="languages" id="languages">
-            <title>Languages</title>
             <dl>
                 <dlentry>
                     <dt>English</dt>
