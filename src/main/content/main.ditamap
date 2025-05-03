@@ -17,13 +17,13 @@
     <chapter>
         <mapref href="keys.ditamap" keys="keys" />
         <topicgroup product="cv">
-            <topicref href="cv.dita" keys="cv" />
-            <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content" />
+            <topicref href="cv.dita" keys="cv" navtitle="Curriculum Vitae" />
+            <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content" navtitle="CV Content" />
         </topicgroup>
         <topicgroup product="cover_letter">
-            <topicref href="cover_letter.dita" keys="cover_letter" />
+            <topicref href="cover_letter.dita" keys="cover_letter" navtitle="Cover Letter" />
             <topicref href="cover_letter_content.dita" processing-role="resource-only"
-                keys="cover_letter_content" />
+            keys="cover_letter_content" navtitle="Cover Letter Content" />
         </topicgroup>
         <topicref href="related-links.dita" processing-role="resource-only" keys="related-links" />
     </chapter>
