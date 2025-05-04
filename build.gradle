@@ -145,7 +145,8 @@ tasks.register('runDitaProjectCv', Exec) {
 
     commandLine "${ditaOtDir}/bin/dita", 
                 "--project=${ditaProjectFile}",
-                "--deliverable=cv"
+                "--deliverable=cv",
+                "--output=${buildDir}"
 }
 
 tasks.register('runDitaProjectCoverLetter', Exec) {
@@ -163,7 +164,8 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
 
     commandLine "${ditaOtDir}/bin/dita", 
                 "--project=${ditaProjectFile}",
-                "--deliverable=cover_letter"
+                "--deliverable=cover_letter",
+                "--output=${buildDir}"
 }
 
 tasks.register('runDitaProject') {
@@ -198,7 +200,7 @@ tasks.register('packagePlugin', Zip) {
     dependsOn 'runXSpec'
     from file("src/main/plugin")
     archiveFileName.set("${project.name}.zip")
-    destinationDirectory.set(file("${buildDir}/distributions"))
+    destinationDirectory.set(file("${buildDir}/dist"))
 }
 
 tasks.register('prepareDitaOt') {

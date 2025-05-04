@@ -19,12 +19,12 @@ jobs:
         java-version: '17'
         cache: 'gradle'
     - name: Build with Gradle
-      run: ./gradlew runBuild
+      run: ./gradlew runBuild --no-daemon
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: build-output
         path: |
-          build/cv.to.pdf-2.0.0-SNAPSHOT.zip
+          build/dist/cv.to.pdf-2.0.0-SNAPSHOT.zip
           build/out/cv.pdf
           build/out/cover_letter.pdf
