@@ -25,6 +25,5 @@ jobs:
       with:
         name: build-output
         path: |
-          build/dist/cv.to.pdf-2.0.0-SNAPSHOT.zip
-          build/out/cv.pdf
-          build/out/cover_letter.pdf
+          build/dist/*.zip
+          build/out/*.pdf

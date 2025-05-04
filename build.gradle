@@ -146,7 +146,7 @@ tasks.register('runDitaProjectCv', Exec) {
     commandLine "${ditaOtDir}/bin/dita", 
                 "--project=${ditaProjectFile}",
                 "--deliverable=cv",
-                "--output=${buildDir}"
+                "--output=${buildDir}/out"
 }
 
 tasks.register('runDitaProjectCoverLetter', Exec) {
@@ -165,7 +165,7 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
     commandLine "${ditaOtDir}/bin/dita", 
                 "--project=${ditaProjectFile}",
                 "--deliverable=cover_letter",
-                "--output=${buildDir}"
+                "--output=${buildDir}/out"
 }
 
 tasks.register('runDitaProject') {
