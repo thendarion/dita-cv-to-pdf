@@ -1,4 +1,4 @@
-# cv.to.pdf [WIP]
+# cv.to.pdf [WIP] [![Build Status](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml/badge.svg)](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml)
 
 in this project I build a custom DITA-OT plugin to enable writing CV and Cover Letter sources in DITA format. it is a work in progress
 
