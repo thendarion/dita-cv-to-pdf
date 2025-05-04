@@ -4,7 +4,7 @@ in this project I build a custom DITA-OT plugin to enable writing CV and Cover L
 
 # Overview
 
-* the Maven POM governs the project 
+* Gradle builds the project 
   * downloads and install dependencies
   * runs tests and render PDFs
   * packages the plugin as ZIP
@@ -16,15 +16,15 @@ in this project I build a custom DITA-OT plugin to enable writing CV and Cover L
 
 ## Building the PDFs
 if you want to build the PDFs with DITA-OT
-* run `mvn verify -DskipTests`
+* run `./gradlew runDitaProject`
 
 ## Testing the XSL templates
 if you want to modify/add to the custom XSL and XSpec in the plugin and want to make use of the built-in executor in the POM to run the tests
-* run `mvn test`
+* run `./gradlew runXSpec`
 
 ## Assembling the plugin into a ZIP file
 if you want to distribute the plugin in some way
-* run `mvn package`
+* run `./gradlew packagePlugin`
 
 ## Customizing the content
 if you want to insert your own content, you can do it by modifying the source DITA
