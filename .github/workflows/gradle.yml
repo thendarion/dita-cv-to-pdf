@@ -6,20 +6,18 @@ on:
   pull_request:
     branches: [ main ]
 
-cache:
-  key: "$CI_PROJECT_NAME"
-  paths:
-    - .gradle/wrapper/
-    - .gradle/caches/
-    - $GRADLE_USER_HOME/caches/
-
 jobs:
   build:
 
-    runs-on: eclipse-temurin:17-jdk
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'gradle'
     - name: Build with Gradle
       run: ./gradlew runBuild
     - name: Upload Artifact
