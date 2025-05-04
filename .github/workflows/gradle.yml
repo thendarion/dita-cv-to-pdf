@@ -1,0 +1,32 @@
+name: CI with Gradle
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+cache:
+  key: "$CI_PROJECT_NAME"
+  paths:
+    - .gradle/wrapper/
+    - .gradle/caches/
+    - $GRADLE_USER_HOME/caches/
+
+jobs:
+  build:
+
+    runs-on: eclipse-temurin:17-jdk
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build with Gradle
+      run: ./gradlew runBuild
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-output
+        path: |
+          build/cv.to.pdf-2.0.0-SNAPSHOT.zip
+          build/out/cv.pdf
+          build/out/cover_letter.pdf
