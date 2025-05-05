@@ -110,7 +110,7 @@
             </x:context>
             <x:expect>
                 <x:label>THEN add a company line</x:label>
-                <fo:block attribute-set="cv.data.company" font-style="italic">Company</fo:block>
+                <fo:block attribute-set="cv.data.company" keep-with-previous="always" keep-with-next="3" font-style="italic">Company</fo:block>
             </x:expect>
         </x:scenario>
         <x:scenario>
@@ -120,7 +120,7 @@
             </x:context>
             <x:expect>
                 <x:label>THEN add a company line</x:label>
-                <fo:block attribute-set="cv.data.company" font-style="italic">Company</fo:block>
+                <fo:block attribute-set="cv.data.company" keep-with-previous="always" keep-with-next="3" font-style="italic">Company</fo:block>
             </x:expect>
         </x:scenario>
         <x:scenario>
