@@ -18,6 +18,7 @@ def ditaOtCacheDir = new File(downloadsBase, "dita")
 def ditaOtFileName = "dita-ot-${ditaOtVersion}"
 def ditaOtZip = new File(ditaOtCacheDir, "${ditaOtFileName}.zip")
 def ditaOtDir = file("${buildDir}/${ditaOtFileName}")
+def ditaPluginSrcDir = file("src/main/plugin")
 def ditaPluginTargetDir = file("${ditaOtDir}/plugins/${project.name}")
 def xspecTestsDir = file("src/test/xspec")
 def xspecTests = fileTree(xspecTestsDir) {
@@ -113,19 +114,19 @@ tasks.register('unpackDitaOt', Copy) {
 
 tasks.register('copyPluginToDitaOt', Copy) {
     dependsOn 'unpackDitaOt'
-    from file("src/main/plugin")
+    from ditaPluginSrcDir
     into ditaPluginTargetDir
-    inputs.dir "src/main/plugin"
+    inputs.dir ditaPluginSrcDir
     outputs.dir ditaPluginTargetDir
 }
 
 tasks.register('ditaInstall', Exec) {
     dependsOn 'copyPluginToDitaOt'
     inputs.dir ditaPluginTargetDir
-    outputs.file new File(ditaOtDir, "INSTALL.LOG")
+    outputs.file file("${ditaOtDir}/.installed")
 
     workingDir ditaOtDir
-    commandLine "${ditaOtDir}/bin/dita", "--install"
+    commandLine "bash", "-c", "${ditaOtDir}/bin/dita install > ${ditaOtDir}/.installed"
 }
 
 tasks.register('runDitaProjectCv', Exec) {
@@ -141,7 +142,8 @@ tasks.register('runDitaProjectCv', Exec) {
         include 'profile_picture.png'
         include 'profile.jpg'
     }
-    outputs.file new File(ditaOutputDir, "cv")
+    outputs.dir ditaOutputDir
+    outputs.file file("${ditaOutputDir}/cv.pdf")
 
     commandLine "${ditaOtDir}/bin/dita", 
                 "--project=${ditaProjectFile}",
@@ -160,7 +162,8 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
         include 'cover_letter.dita'
         include 'cover_letter_content.dita'
     }
-    outputs.file new File(ditaOutputDir, "cover_letter")
+    outputs.dir ditaOutputDir
+    outputs.file file("${ditaOutputDir}/cover_letter.pdf")
 
     commandLine "${ditaOtDir}/bin/dita", 
                 "--project=${ditaProjectFile}",
@@ -198,7 +201,7 @@ tasks.register("runXSpec") {
 
 tasks.register('packagePlugin', Zip) {
     dependsOn 'runXSpec'
-    from file("src/main/plugin")
+    from ditaPluginSrcDir
     archiveFileName.set("${project.name}.zip")
     destinationDirectory.set(file("${buildDir}/dist"))
 }
