@@ -1,0 +1,36 @@
+name: CI with Gradle
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'gradle'
+    - name: Build with Gradle
+      run: ./gradlew runBuild --no-daemon
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-output
+        path: |
+          build/dist/*.zip
+          build/out/*.pdf
+    - name: Publish Test Report
+      uses: dorny/test-reporter@v2
+      if: always()
+      with:
+        name: XSpec Tests
+        path: build/xspec/*-junit.xml
+        reporter: java-junit
