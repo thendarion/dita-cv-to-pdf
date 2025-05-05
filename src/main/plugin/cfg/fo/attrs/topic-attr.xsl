@@ -6,7 +6,10 @@
     <xsl:attribute-set name="cv.section.title" use-attribute-sets="section.title">
         <xsl:attribute name="border-bottom">1px solid black</xsl:attribute>
     </xsl:attribute-set>
-    <xsl:attribute-set name="cv.data"/>
+    <xsl:attribute-set name="cv.data">
+        <xsl:attribute name="keep-with-previous">always</xsl:attribute>
+        <xsl:attribute name="keep-with-next">always</xsl:attribute>
+    </xsl:attribute-set>
     
     <xsl:attribute-set name="cv.data.company" use-attribute-sets="cv.data">
         <xsl:attribute name="font-style">italic</xsl:attribute>
