@@ -196,6 +196,8 @@ xspecTests.each { xspecFile ->
 tasks.register("runXSpec") {
     group = "verification"
     description = "Run all XSpec tests"
+    inputs.dir xspecTestsDir
+    outputs.dir xspecResultDir
     dependsOn "unpackXSpec", "unpackSaxon", tasks.matching { it.name.startsWith("runXSpec_") }
 }
 

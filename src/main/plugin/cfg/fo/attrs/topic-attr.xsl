@@ -9,6 +9,8 @@
     <xsl:attribute-set name="cv.data"/>
     
     <xsl:attribute-set name="cv.data.company" use-attribute-sets="cv.data">
+        <xsl:attribute name="keep-with-previous">always</xsl:attribute>
+        <xsl:attribute name="keep-with-next">3</xsl:attribute>
         <xsl:attribute name="font-style">italic</xsl:attribute>
     </xsl:attribute-set>
     <xsl:attribute-set name="cv.data.startdate" use-attribute-sets="cv.data"/>
