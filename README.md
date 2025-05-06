@@ -1,35 +1,47 @@
 # cv.to.pdf [WIP] [![Build Status](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml/badge.svg)](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml)
 
-in this project I build a custom DITA-OT plugin to enable writing CV and Cover Letter sources in DITA format. it is a work in progress
+This project contains a custom [DITA-OT](https://www.dita-ot.org/) plugin that enables writing CV and Cover Letter source files in DITA format.  
+🛠️ It is a work in progress.
 
-# Overview
+# Project overview
+to make it easy to maintain and extend custom PDF output from DITA content, we use the following setup:
 
-* Gradle builds the project 
-  * downloads and install dependencies
-  * runs tests and render PDFs
-  * packages the plugin as ZIP
-* in DITA-OT 
-  * a new plugin renders custom FO for PDF rendering
-  * XSL templates with some XSpec tests add custom functionality
+- **Build system:**  
+  Gradle orchestrates setup, testing, PDF rendering, and plugin packaging
 
-# Using the plugin
+- **DITA-OT customization:**
+  - builds on the existing `pdf2` transform
+  - custom XSL templates define both layout and structure
+  - XSpec tests in `src/test` validate key XSL behavior
+
+# Using the project
 
 ## Building the PDFs
-if you want to build the PDFs with DITA-OT
-* run `./gradlew runDitaProject`
+to build the CV and Cover Letter PDFs with DITA-OT, run
+```bash
+./gradlew runDitaProject
+```
+note: to run only one of them, use `runDitaProjectCV` or `runDitaProjectCoverLetter` instead
 
 ## Testing the XSL templates
-if you want to modify/add to the custom XSL and XSpec in the plugin and want to make use of the built-in executor in the POM to run the tests
-* run `./gradlew runXSpec`
+to run the XSpec test suite, run
+```bash
+./gradlew runXSpec
+```
 
 ## Assembling the plugin into a ZIP file
-if you want to distribute the plugin in some way
-* run `./gradlew packagePlugin`
+to create a distributable `.zip` of the plugin, run
+```bash
+./gradlew packagePlugin
+```
 
 ## Customizing the content
-if you want to insert your own content, you can do it by modifying the source DITA
-1. go to [src/main/content](src/main/content)
-1. use the templates to write your own CV and Cover Letter
+to create your own CV and Cover Letter:
+1. go to [`src/main/content`](src/main/content)
+1. add your own DITA content by one of two methods:
+    * edit the templates directly
+    * add `cv_content.dita` and `cover_letter_content.dita` and use conref push (recommended)
+1. build the PDFs
 
 # Reporting bugs
-please open an issue if you find anything weird
+if you run into any weirdness, feel free to [open an issue](https://github.com/thendarion/dita-cv-to-pdf/issues).
