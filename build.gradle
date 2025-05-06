@@ -41,19 +41,25 @@ def saxonZip = new File(saxonCacheDir, "SaxonHE${saxonVersion}J.zip")
 def saxonDir = file("${buildDir}/saxon-${saxonVersion}")
 
 tasks.register("downloadXSpec") {
+    group = "setup"
+    description = "Download XSpec"
     inputs.property "xspecVersion", xspecVersion
     outputs.file xspecZip
 
-    xspecCacheDir.mkdirs()
-    if (!xspecZip.exists()) {
-        def url = new URL("https://github.com/xspec/xspec/archive/refs/tags/v${xspecVersion}.zip")
-        url.withInputStream { stream ->
-            Files.copy(stream, xspecZip.toPath(), StandardCopyOption.REPLACE_EXISTING)
+    doLast{
+       xspecCacheDir.mkdirs()
+        if (!xspecZip.exists()) {
+            def url = new URL("https://github.com/xspec/xspec/archive/refs/tags/v${xspecVersion}.zip")
+            url.withInputStream { stream ->
+                Files.copy(stream, xspecZip.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
         }
     }
 }
 
 tasks.register("unpackXSpec", Copy) {
+    group = "setup"
+    description = "Unpack XSpec to the build directory"
     dependsOn "downloadXSpec"
     from(zipTree(xspecZip)) {
         eachFile { fileCopyDetails ->
@@ -68,18 +74,24 @@ tasks.register("unpackXSpec", Copy) {
 
 
 tasks.register("downloadSaxon") {
+    group = "setup"
+    description = "Download Saxon-HE"
     inputs.property "saxonVersion", saxonVersion
     outputs.file saxonZip
-    saxonCacheDir.mkdirs()
-    if (!saxonZip.exists()) {
-        def url = new URL("https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE${saxonVersion}/SaxonHE${saxonVersion}J.zip")
-        url.withInputStream { stream ->
-            Files.copy(stream, saxonZip.toPath(), StandardCopyOption.REPLACE_EXISTING)
+    doLast{
+        saxonCacheDir.mkdirs()
+        if (!saxonZip.exists()) {
+            def url = new URL("https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE${saxonVersion}/SaxonHE${saxonVersion}J.zip")
+            url.withInputStream { stream ->
+                Files.copy(stream, saxonZip.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
         }
     }
 }
 
 tasks.register("unpackSaxon", Copy) {
+    group = "setup"
+    description = "Unpack Saxon-HE to the build directory"
     dependsOn "downloadSaxon"
     from zipTree(saxonZip)
     into saxonDir
@@ -88,18 +100,24 @@ tasks.register("unpackSaxon", Copy) {
 }
 
 tasks.register('downloadDitaOt') {
+    group = "setup"
+    description = "Download DITA-OT"
     inputs.property "ditaOtVersion", ditaOtVersion
     outputs.file ditaOtZip
-    ditaOtCacheDir.mkdirs()
-    if (!ditaOtZip.exists()) {
-        def url = new URL("https://github.com/dita-ot/dita-ot/releases/download/${ditaOtVersion}/dita-ot-${ditaOtVersion}.zip")
-        url.withInputStream { stream ->
-            Files.copy(stream, ditaOtZip.toPath(), StandardCopyOption.REPLACE_EXISTING)
+    doLast{
+        ditaOtCacheDir.mkdirs()
+        if (!ditaOtZip.exists()) {
+            def url = new URL("https://github.com/dita-ot/dita-ot/releases/download/${ditaOtVersion}/dita-ot-${ditaOtVersion}.zip")
+            url.withInputStream { stream ->
+                Files.copy(stream, ditaOtZip.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
         }
     }
 }
 
 tasks.register('unpackDitaOt', Copy) {
+    group = "setup"
+    description = "Unpack DITA-OT to the build directory"
     dependsOn 'downloadDitaOt'
     from(zipTree(ditaOtZip)) {
         eachFile { fileCopyDetails ->
@@ -113,6 +131,8 @@ tasks.register('unpackDitaOt', Copy) {
 }
 
 tasks.register('copyPluginToDitaOt', Copy) {
+    group = "setup"
+    description = "Copy the plugin to DITA-OT"
     dependsOn 'unpackDitaOt'
     from ditaPluginSrcDir
     into ditaPluginTargetDir
@@ -121,6 +141,8 @@ tasks.register('copyPluginToDitaOt', Copy) {
 }
 
 tasks.register('ditaInstall', Exec) {
+    group = "setup"
+    description = "Install the plugin into DITA-OT"
     dependsOn 'copyPluginToDitaOt'
     inputs.dir ditaPluginTargetDir
     outputs.file file("${ditaOtDir}/.installed")
@@ -130,6 +152,8 @@ tasks.register('ditaInstall', Exec) {
 }
 
 tasks.register('runDitaProjectCv', Exec) {
+    group = "build"
+    description = "Run DITA-OT to generate CV"
     dependsOn 'ditaInstall'
     inputs.file ditaProjectFile
     inputs.dir ditaPluginTargetDir
@@ -152,6 +176,8 @@ tasks.register('runDitaProjectCv', Exec) {
 }
 
 tasks.register('runDitaProjectCoverLetter', Exec) {
+    group = "build"
+    description = "Run DITA-OT to generate Cover Letter"
     dependsOn 'ditaInstall'
     inputs.file ditaProjectFile
     inputs.dir ditaPluginTargetDir
@@ -172,6 +198,8 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
 }
 
 tasks.register('runDitaProject') {
+    group = "build"
+    description = "Run DITA-OT to generate CV and Cover Letter"
     dependsOn 'runDitaProjectCv', 'runDitaProjectCoverLetter'
 }
 
@@ -182,14 +210,22 @@ xspecTests.each { xspecFile ->
 
     tasks.register("runXSpec_${baseName}", Exec) {
         group = "verification"
+        description = "Run XSpec tests for ${baseName}"
         inputs.dir xspecTestsDir
         outputs.files htmlOut, junitOut
         dependsOn "unpackXSpec"
 
         environment "SAXON_HOME", saxonDir.absolutePath
         environment "TEST_DIR", "${buildDir}/xspec"
-        commandLine xspecBin.absolutePath, "-j",
-            xspecFile.absolutePath
+        commandLine xspecBin.absolutePath, "-j", xspecFile.absolutePath
+
+        doLast {
+            def xml = new XmlSlurper().parse(junitOut)
+            def failures = xml.depthFirst().findAll { it.@status == 'failed' }.size()
+            if (failures) {
+                throw new GradleException("XSpec test failure(s) found in ${baseName}")
+            }
+        }
     }
 }
 
@@ -202,6 +238,8 @@ tasks.register("runXSpec") {
 }
 
 tasks.register('packagePlugin', Zip) {
+    group = "build"
+    description = "Package the plugin for distribution"
     dependsOn 'runXSpec'
     from ditaPluginSrcDir
     archiveFileName.set("${project.name}.zip")
@@ -209,9 +247,14 @@ tasks.register('packagePlugin', Zip) {
 }
 
 tasks.register('prepareDitaOt') {
+    group = "setup"
+    description = "Prepare DITA-OT for rendering"
     dependsOn 'ditaInstall'
 }
 
 tasks.register('runBuild') {
+    group = "build"
+    description = "Run the build process"
     dependsOn 'runDitaProject', 'runXSpec', 'packagePlugin'
 }
+
