@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="linkedin.to.pdf">
+<plugin id="cv.to.pdf" version="2.0.0">
     <require plugin="org.dita.pdf2"/>
     <feature extension="dita.xsl.xslfo" file="xsl/fo/topic2fo.xsl"/>
     <feature extension="dita.xsl.strings" file="xsl/common/strings.xml"/>

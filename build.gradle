@@ -20,6 +20,7 @@ def ditaOtZip = new File(ditaOtCacheDir, "${ditaOtFileName}.zip")
 def ditaOtDir = file("${buildDir}/${ditaOtFileName}")
 def ditaPluginSrcDir = file("src/main/plugin")
 def ditaPluginTargetDir = file("${ditaOtDir}/plugins/${project.name}")
+def ditaOtPluginsInstalled = file("${buildDir}/.installed")
 def xspecTestsDir = file("src/test/xspec")
 def xspecTests = fileTree(xspecTestsDir) {
     include "**/*.xspec"
@@ -128,6 +129,10 @@ tasks.register('unpackDitaOt', Copy) {
     into ditaOtDir
     inputs.file ditaOtZip
     outputs.dir ditaOtDir
+
+    project.delete(
+        project.fileTree(ditaOtPluginsInstalled.toPath())
+    )
 }
 
 tasks.register('copyPluginToDitaOt', Copy) {
@@ -145,7 +150,7 @@ tasks.register('ditaInstall', Exec) {
     description = "Install the plugin into DITA-OT"
     dependsOn 'copyPluginToDitaOt'
     inputs.dir ditaPluginTargetDir
-    outputs.file file("${ditaOtDir}/.installed")
+    outputs.file ditaOtPluginsInstalled
 
     workingDir ditaOtDir
     commandLine "bash", "-c", "${ditaOtDir}/bin/dita install > ${ditaOtDir}/.installed"
