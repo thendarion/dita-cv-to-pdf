@@ -128,11 +128,7 @@ tasks.register('unpackDitaOt', Copy) {
     }
     into ditaOtDir
     inputs.file ditaOtZip
-    outputs.dir ditaOtDir
-
-    project.delete(
-        project.fileTree(ditaOtPluginsInstalled.toPath())
-    )
+    outputs.file file("${ditaOtDir}/bin/dita")
 }
 
 tasks.register('copyPluginToDitaOt', Copy) {
@@ -150,10 +146,11 @@ tasks.register('ditaInstall', Exec) {
     description = "Install the plugin into DITA-OT"
     dependsOn 'copyPluginToDitaOt'
     inputs.dir ditaPluginTargetDir
-    outputs.file ditaOtPluginsInstalled
+    inputs.dir ditaPluginSrcDir
+    outputs.file file("${ditaOtDir}/build.xml")
 
     workingDir ditaOtDir
-    commandLine "bash", "-c", "${ditaOtDir}/bin/dita install > ${ditaOtDir}/.installed"
+    commandLine "bash", "-c", "${ditaOtDir}/bin/dita install"
 }
 
 tasks.register('runDitaProjectCv', Exec) {
@@ -217,6 +214,7 @@ xspecTests.each { xspecFile ->
         group = "verification"
         description = "Run XSpec tests for ${baseName}"
         inputs.dir xspecTestsDir
+        inputs.dir ditaPluginSrcDir
         outputs.files htmlOut, junitOut
         dependsOn "unpackXSpec"
 
@@ -238,6 +236,7 @@ tasks.register("runXSpec") {
     group = "verification"
     description = "Run all XSpec tests"
     inputs.dir xspecTestsDir
+    inputs.dir ditaPluginSrcDir
     outputs.dir xspecResultDir
     dependsOn "unpackXSpec", "unpackSaxon", tasks.matching { it.name.startsWith("runXSpec_") }
 }
