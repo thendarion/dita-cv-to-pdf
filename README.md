@@ -10,11 +10,12 @@ to make it easy to maintain and extend custom PDF output from DITA content, we u
   Gradle orchestrates setup, testing, PDF rendering, and plugin packaging
 
 - **DITA-OT customization:**
-  - builds on the existing `pdf2` transform
+  - builds on the existing `pdf2` transformation
   - custom XSL templates define both layout and structure
   - XSpec tests in `src/test` validate key XSL behavior
 
 # Using the project
+note: on Windows, use `gradlew.bat`, on Linux, use `gradlew`
 
 ## Building the PDFs
 to build the CV and Cover Letter PDFs with DITA-OT, run
@@ -42,6 +43,12 @@ to create your own CV and Cover Letter:
     * edit the templates directly
     * add `cv_content.dita` and `cover_letter_content.dita` and use conref push (recommended)
 1. build the PDFs
+
+# Troubleshooting
+if the plugin doesn't install properly and the output does not have the custom formatting, run all the build steps again using
+```bash
+./gradlew runDitaProject --rerun-tasks
+```
 
 # Reporting bugs
 if you run into any weirdness, feel free to [open an issue](https://github.com/thendarion/dita-cv-to-pdf/issues).
