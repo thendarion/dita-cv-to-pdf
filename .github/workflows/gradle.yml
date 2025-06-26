@@ -32,3 +32,10 @@ jobs:
         path: |
           build/dist/*.zip
           build/out/*.pdf
+    - name: Publish Test Report
+      uses: dorny/test-reporter@v2
+      if: always()
+      with:
+        name: XSpec Tests
+        path: build/xspec/*-junit.xml
+        reporter: java-junit
