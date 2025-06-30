@@ -41,6 +41,8 @@ def saxonCacheDir = new File(downloadsBase, "saxon")
 def saxonZip = new File(saxonCacheDir, "SaxonHE${saxonVersion}J.zip")
 def saxonDir = file("${buildDir}/saxon-${saxonVersion}")
 
+defaultTasks 'runBuild'
+
 tasks.register("downloadXSpec") {
     group = "setup"
     description = "Download XSpec"
