@@ -1,54 +1,59 @@
-# cv.to.pdf [WIP] [![Build Status](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml/badge.svg)](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml)
+# DITA CV to PDF [![Build Status](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml/badge.svg)](https://github.com/thendarion/dita-cv-to-pdf/actions/workflows/gradle.yml)
 
-This project contains a custom [DITA-OT](https://www.dita-ot.org/) plugin that enables writing CV and Cover Letter source files in DITA format.  
-🛠️ It is a work in progress.
+🛠️ This project is a work in progress.
 
-# Project overview
-to make it easy to maintain and extend custom PDF output from DITA content, we use the following setup:
+# Overview
 
-- **Build system:**  
-  Gradle orchestrates setup, testing, PDF rendering, and plugin packaging
+I created a custom [DITA-OT](https://www.dita-ot.org/) plugin that enables writing the following in DITA format:
+* CV
+* Cover letter
+ 
+and then rendering them in PDF.  
 
-- **DITA-OT customization:**
-  - builds on the existing `pdf2` transformation
+# Implementation
+
+  - builds on the existing DITA-OT `pdf2` transformation
   - custom XSL templates define both layout and structure
-  - XSpec tests in `src/test` validate key XSL behavior
+  - XSpec tests validate key XSL behavior
 
 # Using the project
-note: on Windows, use `gradlew.bat`, on Linux, use `gradlew`
+
+## Customizing the content
+Create your own CV and Cover Letter content to render.
+
+- Add your own DITA content by creating `cv_content.dita` and `cover_letter_content.dita` in [`src/main/content`](src/main/content) and use conref push to replace the placeholders in the template files.
 
 ## Building the PDFs
-to build the CV and Cover Letter PDFs with DITA-OT, run
+Use Gradle to download DITA-OT, install this plugin, and render the PDFs.
+
 ```bash
 ./gradlew runDitaProject
 ```
-note: to run only one of them, use `runDitaProjectCV` or `runDitaProjectCoverLetter` instead
+>Note:
+> `runDitaProjectCV` and `runDitaProjectCoverLetter` renders only the CV or the cover letter respectively, if you only want one of them.
+
+>Note: on Windows, use `gradlew.bat`; on Linux, use `./gradlew`.
 
 ## Testing the XSL templates
-to run the XSpec test suite, run
+Run the XSpec test suite.
 ```bash
 ./gradlew runXSpec
 ```
 
 ## Assembling the plugin into a ZIP file
-to create a distributable `.zip` of the plugin, run
+Create a distributable `.zip` of the plugin.
 ```bash
 ./gradlew packagePlugin
 ```
 
-## Customizing the content
-to create your own CV and Cover Letter:
-1. go to [`src/main/content`](src/main/content)
-1. add your own DITA content by one of two methods:
-    * edit the templates directly
-    * add `cv_content.dita` and `cover_letter_content.dita` and use conref push (recommended)
-1. build the PDFs
 
 # Troubleshooting
-if the plugin doesn't install properly and the output does not have the custom formatting, run all the build steps again using
+**Error:** the plugin doesn't install properly and the output does not have the custom formatting.
+
+**Solution:** run all the build steps again.
 ```bash
 ./gradlew runDitaProject --rerun-tasks
 ```
 
 # Reporting bugs
-if you run into any weirdness, feel free to [open an issue](https://github.com/thendarion/dita-cv-to-pdf/issues).
+If you run into any weirdness, feel free to [open an issue](https://github.com/thendarion/dita-cv-to-pdf/issues).
