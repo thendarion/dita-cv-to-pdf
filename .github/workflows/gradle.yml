@@ -19,7 +19,7 @@ jobs:
         java-version: '17'
         cache: 'gradle'
     - name: Build with Gradle
-      run: ./gradlew runBuild --no-daemon
+      run: ./gradlew runBuild --no-daemon --info
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
