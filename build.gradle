@@ -8,6 +8,7 @@ plugins {
 
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -18,29 +19,29 @@ def ditaOtVersion = project.property("ditaOtVersion")
 def ditaOtCacheDir = new File(downloadsBase, "dita")
 def ditaOtFileName = "dita-ot-${ditaOtVersion}"
 def ditaOtZip = new File(ditaOtCacheDir, "${ditaOtFileName}.zip")
-def ditaOtDir = file("${buildDir}/${ditaOtFileName}")
+def ditaOtDir =  layout.buildDirectory.dir(ditaOtFileName)
+def ditaOtBin = ditaOtDir.map { it.file("/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : "")) }
 def ditaPluginSrcDir = file("src/main/plugin")
-def ditaPluginTargetDir = file("${ditaOtDir}/plugins/${project.name}")
-def ditaOtPluginsInstalled = file("${buildDir}/.installed")
+def ditaPluginTargetDir = ditaOtDir.map { it.dir("plugins").dir(project.name) }
 def xspecTestsDir = file("src/test/xspec")
 def xspecTests = fileTree(xspecTestsDir) {
     include "**/*.xspec"
     exclude "**/*.module.xspec"
 }
-def xspecResultDir = file("${buildDir}/xspec")
+def xspecResultDir = layout.buildDirectory.dir("xspec")
 def ditaProjectFile = file("dita-project.xml")
-def ditaOutputDir = file("${buildDir}/out")
+def ditaOutputDir = layout.buildDirectory.dir("out")
 def ditaSourceDir = file("src/main/content")
 def xspecVersion = project.property("xspecVersion")
 def xspecCacheDir = new File(downloadsBase, "xspec")
 def xspecFileName = "xspec-${xspecVersion}"
 def xspecZip = new File(xspecCacheDir, "${xspecFileName}.zip")
-def xspecDir = file("${buildDir}/${xspecFileName}")
-def xspecBin = file("${xspecDir}/bin/xspec.sh")
+def xspecDir = layout.buildDirectory.dir(xspecFileName)
+def xspecBin = xspecDir.map { it.file("bin/xspec" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ".sh")) }
 def saxonVersion = project.property("saxonVersion")
 def saxonCacheDir = new File(downloadsBase, "saxon")
 def saxonZip = new File(saxonCacheDir, "SaxonHE${saxonVersion}J.zip")
-def saxonDir = file("${buildDir}/saxon-${saxonVersion}")
+def saxonDir = layout.buildDirectory.dir("saxon-${saxonVersion}")
 
 tasks.register("downloadXSpec") {
     group = "setup"
@@ -129,7 +130,7 @@ tasks.register('unpackDitaOt', Copy) {
     }
     into ditaOtDir
     inputs.file ditaOtZip
-    outputs.file file("${ditaOtDir}/bin/dita")
+    outputs.file ditaOtDir.map { it.file("bin/dita") }
 }
 
 tasks.register('copyPluginToDitaOt', Copy) {
@@ -148,10 +149,10 @@ tasks.register('ditaInstall', Exec) {
     dependsOn 'copyPluginToDitaOt'
     inputs.dir ditaPluginTargetDir
     inputs.dir ditaPluginSrcDir
-    outputs.file file("${ditaOtDir}/build.xml")
+    outputs.file ditaOtDir.map { it.file("build.xml") }
 
     workingDir ditaOtDir
-    commandLine "${ditaOtDir}/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ""), "install"
+    commandLine ditaOtBin.get().asFile.absolutePath, "install"
 }
 
 tasks.register('runDitaProjectCv', Exec) {
@@ -170,12 +171,12 @@ tasks.register('runDitaProjectCv', Exec) {
         include 'profile.jpg'
     }
     outputs.dir ditaOutputDir
-    outputs.file file("${ditaOutputDir}/cv.pdf")
+    outputs.file ditaOutputDir.map { it.file("cv.pdf") }
 
-    commandLine "${ditaOtDir}/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ""), 
+    commandLine ditaOtBin.get().asFile.absolutePath,
                 "--project=${ditaProjectFile}",
                 "--deliverable=cv",
-                "--output=${buildDir}/out"
+                "--output=${layout.buildDirectory.dir("out").get().asFile.absolutePath}"
 }
 
 tasks.register('runDitaProjectCoverLetter', Exec) {
@@ -192,12 +193,12 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
         include 'cover_letter_content.dita'
     }
     outputs.dir ditaOutputDir
-    outputs.file file("${ditaOutputDir}/cover_letter.pdf")
+    outputs.file ditaOutputDir.map { it.file("cover_letter.pdf") }
 
-    commandLine "${ditaOtDir}/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ""),
+    commandLine ditaOtBin.get().asFile.absolutePath,
                 "--project=${ditaProjectFile}",
                 "--deliverable=cover_letter",
-                "--output=${buildDir}/out"
+                "--output=${layout.buildDirectory.dir("out").get().asFile.absolutePath}"
 }
 
 tasks.register('runDitaProject') {
@@ -208,8 +209,8 @@ tasks.register('runDitaProject') {
 
 xspecTests.each { xspecFile ->
     def baseName = xspecFile.name.replaceFirst(/\.xspec$/, "")
-    def htmlOut = new File(xspecResultDir, "${baseName}-result.html")
-    def junitOut = new File(xspecResultDir, "${baseName}-junit.xml")
+    def htmlOut = new File(xspecResultDir.get().asFile, "${baseName}-result.html")
+    def junitOut = new File(xspecResultDir.get().asFile, "${baseName}-junit.xml")
 
     tasks.register("runXSpec_${baseName}", Exec) {
         group = "verification"
@@ -219,9 +220,9 @@ xspecTests.each { xspecFile ->
         outputs.files htmlOut, junitOut
         dependsOn "unpackXSpec"
 
-        environment "SAXON_HOME", saxonDir.absolutePath
-        environment "TEST_DIR", "${buildDir}/xspec"
-        commandLine xspecBin.absolutePath, "-j", xspecFile.absolutePath
+        environment "SAXON_HOME", saxonDir.get().asFile.absolutePath
+        environment "TEST_DIR", xspecResultDir.get().asFile.absolutePath
+        commandLine xspecBin.get().asFile.absolutePath, "-j", xspecFile.absolutePath
 
         doLast {
             def xml = new XmlSlurper().parse(junitOut)
@@ -248,7 +249,7 @@ tasks.register('packagePlugin', Zip) {
     dependsOn 'runXSpec'
     from ditaPluginSrcDir
     archiveFileName.set("${project.name}.zip")
-    destinationDirectory.set(file("${buildDir}/dist"))
+    destinationDirectory.set(layout.buildDirectory.dir("dist"))
 }
 
 tasks.register('prepareDitaOt') {
@@ -263,3 +264,4 @@ tasks.register('runBuild') {
     dependsOn 'runDitaProject', 'runXSpec', 'packagePlugin'
 }
 
+defaultTasks "runBuild"
