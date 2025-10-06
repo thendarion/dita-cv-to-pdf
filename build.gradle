@@ -10,6 +10,7 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import org.apache.tools.ant.taskdefs.condition.Os
 
 
 def downloadsBase = new File(gradle.gradleUserHomeDir, "caches/downloads")
@@ -150,7 +151,7 @@ tasks.register('ditaInstall', Exec) {
     outputs.file file("${ditaOtDir}/build.xml")
 
     workingDir ditaOtDir
-    commandLine "bash", "-c", "${ditaOtDir}/bin/dita install"
+    commandLine "${ditaOtDir}/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ""), "install"
 }
 
 tasks.register('runDitaProjectCv', Exec) {
@@ -171,7 +172,7 @@ tasks.register('runDitaProjectCv', Exec) {
     outputs.dir ditaOutputDir
     outputs.file file("${ditaOutputDir}/cv.pdf")
 
-    commandLine "${ditaOtDir}/bin/dita", 
+    commandLine "${ditaOtDir}/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ""), 
                 "--project=${ditaProjectFile}",
                 "--deliverable=cv",
                 "--output=${buildDir}/out"
@@ -193,7 +194,7 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
     outputs.dir ditaOutputDir
     outputs.file file("${ditaOutputDir}/cover_letter.pdf")
 
-    commandLine "${ditaOtDir}/bin/dita", 
+    commandLine "${ditaOtDir}/bin/dita" + (Os.isFamily(Os.FAMILY_WINDOWS) ? ".bat" : ""),
                 "--project=${ditaProjectFile}",
                 "--deliverable=cover_letter",
                 "--output=${buildDir}/out"
