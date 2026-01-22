@@ -40,7 +40,7 @@ Run the XSpec test suite.
 ./gradlew runXSpec
 ```
 
-## Assembling the plugin into a ZIP file
+## Packaging the plugin
 Create a distributable `.zip` of the plugin.
 ```bash
 ./gradlew packagePlugin
