@@ -147,9 +147,6 @@ tasks.register('ditaInstall', Exec) {
     group = "setup"
     description = "Install the plugin into DITA-OT"
     dependsOn 'copyPluginToDitaOt'
-    inputs.dir ditaPluginTargetDir
-    inputs.dir ditaPluginSrcDir
-    outputs.file ditaOtDir.map { it.file("build.xml") }
 
     workingDir ditaOtDir
     commandLine ditaOtBin.get().asFile.absolutePath, "install"
