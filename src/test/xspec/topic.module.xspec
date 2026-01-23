@@ -37,6 +37,17 @@
             </x:expect>
         </x:scenario>
         <x:scenario>
+            <x:label>WHEN it is of outputclass profile</x:label>
+            <x:context>
+                <section class="- topic/section " outputclass="profile"/>
+            </x:context>
+            <x:expect>
+                <x:label>THEN put a label before it and process it as usual</x:label>
+                <fo:block attribute-set="section.title" border-bottom="1px solid black" common="attributes">Profile</fo:block>
+                <section class="- topic/section " outputclass="profile"/>
+            </x:expect>
+        </x:scenario>
+        <x:scenario>
             <x:label>WHEN it is of outputclass skills</x:label>
             <x:context>
                 <section class="- topic/section " outputclass="skills"/>

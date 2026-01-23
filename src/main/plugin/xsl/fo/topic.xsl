@@ -29,6 +29,12 @@
         </xsl:call-template>
         <xsl:next-match/>
     </xsl:template>
+    <xsl:template match="*[contains(@class,' topic/section ')][contains(@outputclass,'profile')][1]">
+        <xsl:call-template name="insert_cv_section_label">
+            <xsl:with-param name="label">Profile</xsl:with-param>
+        </xsl:call-template>
+        <xsl:next-match/>
+    </xsl:template>
     <xsl:template match="*[contains(@class,' topic/section ')][contains(@outputclass,'skills')][1]">
         <xsl:call-template name="insert_cv_section_label">
             <xsl:with-param name="label">Skills</xsl:with-param>

@@ -1,97 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
+"topic.dtd">
 <topic id="cv">
-    <title id="title">Your Name</title>
-    <shortdesc id="shortdesc">A professional CV template for showcasing your skills, experience, and education.</shortdesc>
-    <body>
-        <table frame="none" id="contact_information">
-            <tgroup cols="2">
-                <colspec colnum="1" colname="c1" colwidth="2in" />
-                <colspec colnum="2" colname="c2" colwidth="4in" />
-                <tbody>
-                    <row>
-                        <entry>
-                            <image href="profile_picture.png" alt="Profile Picture" width="3cm"/>
-                        </entry>
-                        <entry>
-                            <dl>
-                                <dlentry>
-                                    <dt>Top skills</dt>
-                                    <dd>Python</dd>
-                                    <dd>Git</dd>
-                                </dlentry>
-                                <dlentry>
-                                    <dt>Email</dt>
-                                    <dd>your.email@example.com</dd>
-                                </dlentry>
-                                <dlentry>
-                                    <dt>Phone</dt>
-                                    <dd>+1 234 567 890</dd>
-                                </dlentry>
-                                <dlentry>
-                                    <dt>LinkedIn</dt>
-                                    <dd><xref scope="external" href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</xref></dd>
-                                </dlentry>
-                            </dl> 
-                        </entry>
-                    </row>
-                </tbody>
-            </tgroup>
-        </table>
-        <section id="about">I'm a [role or field] with experience in [areas]. I care about [values], and I enjoy solving problems through [tools or methods].</section>
-        <bodydiv id="experience">
-            <section outputclass="experience">
-                <title>Professional Experience</title>
-                <data name="company">Company Name</data>
-                <data name="startdate">2020</data>
-                <data name="enddate">Present</data>
-                <ul>
-                    <li>Led a team of X members to achieve [specific goal or project].</li>
-                    <li>Implemented [specific technology or process] to improve [specific outcome].</li>
-                    <li>Collaborated with [departments/teams] to deliver [specific result].</li>
-                    <li>Managed [specific responsibilities or tasks].</li>
-                </ul>
-            </section>
-            <section outputclass="experience">
-                <title>Previous Position</title>
-                <data name="company">Previous Company</data>
-                <data name="startdate">2018</data>
-                <data name="enddate">2020</data>
-                <ul>
-                    <li>Developed [specific skills or technologies] while working on [specific projects].</li>
-                    <li>Contributed to [specific achievements or outcomes].</li>
-                    <li>Maintained [specific systems or processes].</li>
-                </ul>
-            </section>
-        </bodydiv>
-        <bodydiv id="education">
-            <section outputclass="education" >
-                <title>Bachelor of Awesome in Cool Field</title>
-                <data name="company">Your University</data>
-                <data name="startdate">2008</data>
-                <data name="enddate">2012</data>
-            </section>
-        </bodydiv>
-        <section outputclass="skills" id="skills">
-            <ul>
-                <li>Programming Languages: Python, Java, C++</li>
-                <li>Web Development: HTML, CSS, JavaScript, React</li>
-                <li>Tools: Git, Docker, Jenkins</li>
-                <li>Soft Skills: Leadership, Communication, Problem-Solving</li>
-            </ul>
-        </section>
-        <section outputclass="languages" id="languages">
-            <dl>
+  <title id="title">Your Name</title>
+
+  <shortdesc id="shortdesc">A professional CV template for showcasing your
+  skills, experience, and education.</shortdesc>
+
+  <body id="body">
+    <table frame="none" id="contact_information">
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="2in"/>
+
+        <colspec colname="c2" colnum="2" colwidth="4in"/>
+
+        <tbody>
+          <row>
+            <entry><image alt="Profile Picture" href="profile_picture.png"
+            width="3cm"/></entry>
+
+            <entry><dl>
                 <dlentry>
-                    <dt>English</dt>
-                    <dd>Fluent</dd>
+                  <dt>Top skills</dt>
+
+                  <dd>Python</dd>
+
+                  <dd>Git</dd>
                 </dlentry>
+
                 <dlentry>
-                    <dt>Klingon</dt>
-                    <dd>Basic</dd>
+                  <dt>Email</dt>
+
+                  <dd>your.email@example.com</dd>
                 </dlentry>
-            </dl>
-        </section>
-    </body>
-    <related-links conkeyref="related-links/related-links"/>
+
+                <dlentry>
+                  <dt>Phone</dt>
+
+                  <dd>+1 234 567 890</dd>
+                </dlentry>
+
+                <dlentry>
+                  <dt>LinkedIn</dt>
+
+                  <dd><xref href="https://linkedin.com/in/yourprofile"
+                  scope="external">linkedin.com/in/yourprofile</xref></dd>
+                </dlentry>
+              </dl></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+    <section id="about">I'm a [role or field] with experience in [areas]. I
+    care about [values], and I enjoy solving problems through [tools or
+    methods].</section>
+
+    <bodydiv id="profile"/>
+
+    <bodydiv id="experience"><section outputclass="experience">
+    <title>Professional Experience</title> <data name="company">Company
+    Name</data> <data name="startdate">2020</data> <data
+    name="enddate">Present</data> <ul>
+        <li>Led a team of X members to achieve [specific goal or
+        project].</li>
+
+        <li>Implemented [specific technology or process] to improve [specific
+        outcome].</li>
+
+        <li>Collaborated with [departments/teams] to deliver [specific
+        result].</li>
+
+        <li>Managed [specific responsibilities or tasks].</li>
+      </ul> </section> <section outputclass="experience"> <title>Previous
+    Position</title> <data name="company">Previous Company</data> <data
+    name="startdate">2018</data> <data name="enddate">2020</data> <ul>
+        <li>Developed [specific skills or technologies] while working on
+        [specific projects].</li>
+
+        <li>Contributed to [specific achievements or outcomes].</li>
+
+        <li>Maintained [specific systems or processes].</li>
+      </ul> </section></bodydiv>
+
+    <bodydiv id="education"><section outputclass="education"> <title>Bachelor
+    of Awesome in Cool Field</title> <data name="company">Your
+    University</data> <data name="startdate">2008</data> <data
+    name="enddate">2012</data> </section></bodydiv>
+
+    <section id="skills" outputclass="skills"><ul>
+        <li>Programming Languages: Python, Java, C++</li>
+
+        <li>Web Development: HTML, CSS, JavaScript, React</li>
+
+        <li>Tools: Git, Docker, Jenkins</li>
+
+        <li>Soft Skills: Leadership, Communication, Problem-Solving</li>
+      </ul></section>
+
+    <section id="languages" outputclass="languages"><dl>
+        <dlentry>
+          <dt>English</dt>
+
+          <dd>Fluent</dd>
+        </dlentry>
+
+        <dlentry>
+          <dt>Klingon</dt>
+
+          <dd>Basic</dd>
+        </dlentry>
+      </dl></section>
+  </body>
+
+  <related-links conkeyref="related-links/related-links"/>
 </topic>
