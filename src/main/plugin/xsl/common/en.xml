@@ -2,6 +2,7 @@
 <vars xmlns="http://www.idiominc.com/opentopic/vars">
     <variable id="Experience">Experience</variable>
     <variable id="Languages">Languages</variable>
+    <variable id="Profile">Profile</variable>
     <variable id="Skills">Skills</variable>
     <variable id="Education">Education</variable>
     <variable id="Related information">Related links</variable>
