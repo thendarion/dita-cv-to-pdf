@@ -2,26 +2,30 @@
 <!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
 <bookmap>
     <title>
-        <ph product="cv">Curriculum Vitae</ph>
-        <ph product="cover_letter">Cover Letter</ph>
+        <ph product="cv"><keyword conkeyref="keys/cv"/></ph>
+        <ph product="cover_letter"><keyword conkeyref="keys/cover-letter"/></ph>
     </title>
     <bookmeta>
         <author type="creator"><keyword conkeyref="keys/author" /></author>
         <prodinfo>
             <prodname>
-                <keyword product="cv">Curriculum Vitae</keyword>
-                <keyword product="cover_letter">Cover Letter</keyword>        
+                <keyword product="cv" conkeyref="keys/cv"/>
+                <keyword product="cover_letter" conkeyref="keys/cover-letter"/>        
             </prodname>
         </prodinfo>
     </bookmeta>
     <chapter>
         <mapref href="keys.ditamap" keys="keys" />
         <topicgroup product="cv">
-            <topicref href="cv.dita" keys="cv" navtitle="Curriculum Vitae" />
+            <topicref href="cv.dita" keys="cv">
+                <topicmeta><navtitle><keyword conkeyref="keys/cv"/></navtitle></topicmeta>
+            </topicref>
             <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content" navtitle="CV Content" />
         </topicgroup>
         <topicgroup product="cover_letter">
-            <topicref href="cover_letter.dita" keys="cover_letter" navtitle="Cover Letter" />
+            <topicref href="cover_letter.dita" keys="cover_letter">
+                <topicmeta><navtitle><keyword conkeyref="keys/cover-letter"/></navtitle></topicmeta>
+            </topicref>
             <topicref href="cover_letter_content.dita" processing-role="resource-only"
             keys="cover_letter_content" navtitle="Cover Letter Content" />
         </topicgroup>
