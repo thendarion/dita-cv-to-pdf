@@ -29,7 +29,8 @@ def xspecTests = fileTree(xspecTestsDir) {
     exclude "**/*.module.xspec"
 }
 def xspecResultDir = layout.buildDirectory.dir("xspec")
-def ditaProjectFile = file("dita-project.xml")
+def ditaProjectFileCv = file("dita-project-cv.xml")
+def ditaProjectFileCoverLetter = file("dita-project-cover-letter.xml")
 def ditaOutputDir = layout.buildDirectory.dir("out")
 def ditaSourceDir = file("src/main/content")
 def xspecVersion = project.property("xspecVersion")
@@ -156,7 +157,7 @@ tasks.register('runDitaProjectCv', Exec) {
     group = "build"
     description = "Run DITA-OT to generate CV"
     dependsOn 'ditaInstall'
-    inputs.file ditaProjectFile
+    inputs.file ditaProjectFileCv
     inputs.dir ditaPluginTargetDir
     inputs.files fileTree(ditaSourceDir) {
         include 'main.ditamap'
@@ -171,8 +172,7 @@ tasks.register('runDitaProjectCv', Exec) {
     outputs.file ditaOutputDir.map { it.file("cv.pdf") }
 
     commandLine ditaOtBin.get().asFile.absolutePath,
-                "--project=${ditaProjectFile}",
-                "--deliverable=cv",
+                "--project=${ditaProjectFileCv}",
                 "--output=${layout.buildDirectory.dir("out").get().asFile.absolutePath}"
 }
 
@@ -180,7 +180,7 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
     group = "build"
     description = "Run DITA-OT to generate Cover Letter"
     dependsOn 'ditaInstall'
-    inputs.file ditaProjectFile
+    inputs.file ditaProjectFileCoverLetter
     inputs.dir ditaPluginTargetDir
     inputs.files fileTree(ditaSourceDir) {
         include 'main.ditamap'
@@ -193,8 +193,7 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
     outputs.file ditaOutputDir.map { it.file("cover_letter.pdf") }
 
     commandLine ditaOtBin.get().asFile.absolutePath,
-                "--project=${ditaProjectFile}",
-                "--deliverable=cover_letter",
+                "--project=${ditaProjectFileCoverLetter}",
                 "--output=${layout.buildDirectory.dir("out").get().asFile.absolutePath}"
 }
 
