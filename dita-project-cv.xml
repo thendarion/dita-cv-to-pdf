@@ -9,10 +9,21 @@
   <deliverable name="CV" id="cv">
     <context name="cv">
       <input href="src/main/content/main.ditamap" />
+      <profile><ditaval href="src/main/content/cv_classic.ditaval" /></profile>
     </context>
     <output href="." />
     <publication idref="pdf-base">
       <param name="args.output.base" value="cv"/>
+    </publication>
+  </deliverable>
+  <deliverable>
+    <context name="resume" id="resume">
+      <input href="src/main/content/main.ditamap" />
+      <profile><ditaval href="src/main/content/cv_resume.ditaval" /></profile>
+    </context>
+    <output href="." />
+    <publication idref="pdf-base">
+      <param name="args.output.base" value="resume"/>
     </publication>
   </deliverable>
 </project>
