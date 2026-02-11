@@ -173,6 +173,7 @@ tasks.register('runDitaProjectCv', Exec) {
 
     commandLine ditaOtBin.get().asFile.absolutePath,
                 "--project=${ditaProjectFileCv}",
+                "-Dauthor=${author}",
                 "--output=${layout.buildDirectory.dir("out").get().asFile.absolutePath}"
 }
 
@@ -194,6 +195,7 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
 
     commandLine ditaOtBin.get().asFile.absolutePath,
                 "--project=${ditaProjectFileCoverLetter}",
+                "-Dauthor=${author}",
                 "--output=${layout.buildDirectory.dir("out").get().asFile.absolutePath}"
 }
 

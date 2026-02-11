@@ -11,7 +11,7 @@
     </context>
     <output href="." />
     <publication idref="pdf-base">
-      <param name="args.output.base" value="cover_letter"/>
+      <param name="args.output.base" value="${author}_cover_letter"/>
     </publication>
   </deliverable>
 </project>
