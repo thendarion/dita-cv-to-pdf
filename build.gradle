@@ -164,9 +164,9 @@ tasks.register('runDitaProjectCv', Exec) {
         include 'keys.ditamap'
         include 'related-links.dita'
         include 'cv.dita'
-        include 'cv_content.dita'
+        include 'personal/cv_content.dita'
         include 'profile_picture.png'
-        include 'profile.jpg'
+        include 'personal/profile.jpg'
     }
     outputs.dir ditaOutputDir
     outputs.file ditaOutputDir.map { it.file("cv.pdf") }
@@ -188,7 +188,7 @@ tasks.register('runDitaProjectCoverLetter', Exec) {
         include 'keys.ditamap'
         include 'related-links.dita'
         include 'cover_letter.dita'
-        include 'cover_letter_content.dita'
+        include 'personal/cover_letter_content.dita'
     }
     outputs.dir ditaOutputDir
     outputs.file ditaOutputDir.map { it.file("cover_letter.pdf") }

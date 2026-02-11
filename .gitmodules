@@ -1,0 +1,3 @@
+[submodule "src/main/content/src/main/content/personal"]
+	path = src/main/content/src/main/content/personal
+	url = git@github.com:thendarion/dita-cv-to-pdf-content.git

@@ -20,13 +20,13 @@
             <topicref href="cv.dita" keys="cv">
                 <topicmeta><navtitle><keyword conkeyref="keys/cv"/></navtitle></topicmeta>
             </topicref>
-            <topicref href="cv_content.dita" processing-role="resource-only" keys="cv_content" navtitle="CV Content" />
+            <topicref href="personal/cv_content.dita" processing-role="resource-only" keys="cv_content" navtitle="CV Content" />
         </topicgroup>
         <topicgroup product="cover_letter">
             <topicref href="cover_letter.dita" keys="cover_letter">
                 <topicmeta><navtitle><keyword conkeyref="keys/cover-letter"/></navtitle></topicmeta>
             </topicref>
-            <topicref href="cover_letter_content.dita" processing-role="resource-only"
+            <topicref href="personal/cover_letter_content.dita" processing-role="resource-only"
             keys="cover_letter_content" navtitle="Cover Letter Content" />
         </topicgroup>
         <topicref href="related-links.dita" processing-role="resource-only" keys="related-links" />
